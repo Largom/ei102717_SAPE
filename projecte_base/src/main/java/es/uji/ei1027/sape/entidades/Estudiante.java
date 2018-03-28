@@ -11,7 +11,7 @@ public class Estudiante {
 	int numeroAsignaturasPendientes4t;
 	int semestreInicioEstancia;	
 	int orden;
-	Enum itinerario;
+	MenuItinerario itinerario;
 	
 	
 	
@@ -40,7 +40,7 @@ public class Estudiante {
 	public final void setOrden(int orden) {this.orden = orden;}
 
 	public final Enum getItinerario() {return itinerario;}
-	public final void setItinerario(Enum itinerario) {this.itinerario = itinerario;}
+	public final void setItinerario(MenuItinerario itinerario) {this.itinerario = itinerario;}
 
 
 	@Override
