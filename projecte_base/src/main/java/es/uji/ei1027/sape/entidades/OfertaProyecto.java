@@ -1,6 +1,8 @@
 package es.uji.ei1027.sape.entidades;
 
 import java.util.Date;
+import es.uji.ei1027.sape.MenuEstadoOferta;
+
 
 public class OfertaProyecto {
 	
@@ -9,6 +11,7 @@ public class OfertaProyecto {
 	String tarea;
 	Date fechaAlta;
 	Date fechaUltimoCambio;
+	MenuEstadoOferta estadoOferta;
 	
 	
 	public OfertaProyecto() {

@@ -14,6 +14,7 @@ public class Estudiante {
 	Enum itinerario;
 	
 	
+	
 	public final short getId() {return id;}
 	public final void setId(short id) {this.id = id;}
 

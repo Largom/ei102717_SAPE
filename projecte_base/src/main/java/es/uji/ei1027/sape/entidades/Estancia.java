@@ -18,6 +18,8 @@ public class Estancia {
 		this.correo = correo;
 		this.descripcion = descripcion;
 		this.contactoPersona = contactoPersona;
+		
+	
 	}
 	public final Short getId(){return id;}
 	public final void setId(Short id){ this.id = id;}
