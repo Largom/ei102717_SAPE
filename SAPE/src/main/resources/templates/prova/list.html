@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Gestionar Nadadors</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet"     
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	</head>
+	<body>
+		<h1>Llista de Proves</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Tipus</th>
+					<th>Descripcio</th>
+					<th>Nadadors</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="prova: ${proves}">
+					<td th:text="${prova.nom}"></td>
+					<td th:text="${prova.tipus}"></td>
+					<td th:text="${prova.descripcio}"></td>
+					<td><a th:href="@{/classificacio/perpais/{nomprova}(nomprova=${prova.nom})}">Per pais</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/">Tornar</a>
+	</body>
+</html>
