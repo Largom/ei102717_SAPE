@@ -10,5 +10,5 @@ public class PreferenciasAlumno {
 	boolean abierta;
 	boolean cerrada;
 	
-	
+
 }
