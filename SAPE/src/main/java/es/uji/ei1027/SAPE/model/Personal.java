@@ -1,9 +1,40 @@
 package es.uji.ei1027.SAPE.model;
 
-public class Personal {
+public abstract class Personal {
 	
-	private String usuario;
-	private String pass;
+	protected String usuario;
+	protected String pass;
 	
-	public String getUsuario(){ return usuario;}
+	/**
+	 * 
+	 */
+	public Personal() {
+		super();
+		this.usuario = null;
+		this.pass = null;
+	}
+
+	/**
+	 * @param usuario
+	 * @param pass
+	 */
+	public Personal(String usuario, String pass) {
+		super();
+		this.usuario = usuario;
+		this.pass = pass;
+	}
+	
+	/**
+	 * @return the usuario
+	 */
+	public final String getUsuario() {
+		return usuario;
+	}
+
+	/**
+	 * @return the pass
+	 */
+	public final String getPass() {
+		return pass;
+	}
 }

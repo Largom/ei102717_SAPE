@@ -1,15 +1,16 @@
 package es.uji.ei1027.SAPE.model;
 
-public enum MenuEstadoOferta {
-	SINDEFINIR("sin definir"), INTRODUCIDA("introducida"), PENDIENTEREVISION("pendiente de revision"), ACEPTADA("aceptada"), RECHAZADA("rechazada"), VISIBLE("visible"), ASIGNADA("asignada");
-
+public enum MenuSemestre {
+	
+	PRIMERO("1º semestre"), SEGUNDO("2º semestre"), VERANO("Verano");
+	
 	private String descripcion;
 	
-	private MenuEstadoOferta(String descripcion){
+	private MenuSemestre(String descripcion){
 		
-		 this.descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
-
+	
 	
 	public static String getMenu(){
 			
@@ -30,5 +31,6 @@ public enum MenuEstadoOferta {
 	}
 
 
-
+	
+	
 }
