@@ -2,7 +2,7 @@ package es.uji.ei1027.SAPE.model;
 
 public enum MenuEstadoAsignacion {
 	
-	TRASPASADA("Traspasada"), RECHAZADA("Rechazada"), ACEPTADA("Aceptada");
+	TRASPASADA("traspasada"), RECHAZADA("rechazada"), ACEPTADA("aceptada");
 
 	private String descripcion;
 	
