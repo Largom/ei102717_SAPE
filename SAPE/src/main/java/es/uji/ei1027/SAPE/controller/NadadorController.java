@@ -24,7 +24,7 @@ public class NadadorController {
 		this.nadadorDao=nadadorDao;
 	}
 	
-	@RequestMapping("/list") 
+	@RequestMapping("/list"), method = RequestMethod.GET) 
 	public String listNadadors(Model model) {
 		model.addAttribute("nadadors", nadadorDao.getNadadors());
 		return "nadador/list";
@@ -52,9 +52,7 @@ public class NadadorController {
 	}
 	
 	@RequestMapping(value="/update/{nom}", method = RequestMethod.POST) 
-	public String processUpdateSubmit(@PathVariable String nom, 
-			@ModelAttribute("nadador") Nadador nadador, 
-			BindingResult bindingResult) {
+	public String processUpdateSubmit(@PathVariable String nom, @ModelAttribute("nadador") Nadador nadador, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) 
 			return "nadador/update";
 		nadadorDao.updateNadador(nadador);
