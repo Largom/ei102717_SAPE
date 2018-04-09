@@ -52,7 +52,7 @@ public class Estudiante extends Personal{
 	public Estudiante(final String usuario, final String dni, final String nombre, final int numeroCreditosAprobados,
 			final int numeroAsignaturasPendientes4t, final MenuSemestre semestreInicioEstancia, final int orden,
 			final MenuItinerario itinerario) {
-		super(usuario);
+		super(usuario, null);
 		if (numeroAsignaturasPendientes4t<0 || numeroAsignaturasPendientes4t>12 || numeroCreditosAprobados<148 || numeroCreditosAprobados>260) {
 			throw new IllegalArgumentException();
 		}

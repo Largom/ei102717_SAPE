@@ -18,4 +18,6 @@ public interface DaoPeticionRevision {
 	List<PeticionRevision> getPeticionRevisiones(String usu, String pass, short idOferta);
 	List<PeticionRevision> getPeticionRevisiones(String usu, String pass, Date fechaOferta);
 	PeticionRevision getPeticionRevision(String usu, String pass, short idOferta, Date fechaOferta);
+	boolean crearEditarPeticionRevision(String usu, String pass, PeticionRevision petRev);
+	boolean anularPeticionRevision(String usu, String pass, PeticionRevision petRev);
 }

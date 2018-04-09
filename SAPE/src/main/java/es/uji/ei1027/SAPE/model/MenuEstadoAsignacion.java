@@ -27,6 +27,24 @@ public enum MenuEstadoAsignacion {
 	public String getDescripcion(){
 		return descripcion;
 	}
-
+	
+	public static MenuEstadoAsignacion obtenerEstado(String descripcion) {
+		MenuEstadoAsignacion estado;
+		switch (descripcion) {
+			case "traspasada":
+				estado = MenuEstadoAsignacion.TRASPASADA;
+				break;
+			case "rechazada":
+				estado = MenuEstadoAsignacion.RECHAZADA;
+				break;
+			case "aceptada":
+				estado = MenuEstadoAsignacion.ACEPTADA;
+				break;
+			default:
+				estado = null;
+				break;
+		}
+		return estado;
+	}
 
 }
