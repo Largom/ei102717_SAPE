@@ -17,7 +17,7 @@ public interface DaoAsignacion {
 	Asignacion getAsignacion(String usu, String pass, short id);
 	boolean crearEditarAsignacion(String usu, String pass, Asignacion asig);
 	boolean anularAsignacion(String usu, String pass, short id);
-	boolean aceptaAsignacion(String usu, String pass);
-	boolean rechazaAsignacion(String usu, String pass);
-	boolean petCambioAsignacion(String usu, String pass, String comentario);
+	boolean aceptaAsignacion(String usu, String pass, short id);
+	boolean rechazaAsignacion(String usu, String pass, short id);
+	boolean petCambioAsignacion(String usu, String pass, short id, String comentario);
 }

@@ -72,44 +72,48 @@ public class JdbcDaoAsignacion implements DaoAsignacion{
 
 	@Override
 	public List<Asignacion> getAsignaciones(String usu, String pass) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.jdbcTemplate.query(
+				"SELECT * FROM verasignaciones(?, ?)",
+				new AsignacionMapper());
 	}
 
 	@Override
 	public Asignacion getAsignacion(String usu, String pass, short id) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.jdbcTemplate.queryForObject(
+				"SELECT * FROM verasignaciones(?, ?, ?)",
+				new Object[] {usu, pass, id},
+				new AsignacionMapper());
 	}
 
 	@Override
 	public boolean crearEditarAsignacion(String usu, String pass, Asignacion asig) {
-		// TODO Auto-generated method stub
-		return false;
+		return 1 == this.jdbcTemplate.update("SELECT crearasignacion(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				usu, pass, asig.getOferta(), asig.getEstudiante(), asig.getTutor(), asig.getFechaPropuesta(),
+				asig.getFechaTraspasoIGLU(), asig.getId(), asig.getEstado());
 	}
 
 	@Override
 	public boolean anularAsignacion(String usu, String pass, short id) {
-		// TODO Auto-generated method stub
-		return false;
+		return 1 == this.jdbcTemplate.update("SELECT anulaasignacion(?, ?, ?)",
+				usu, pass, id);
 	}
 
 	@Override
-	public boolean aceptaAsignacion(String usu, String pass) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean aceptaAsignacion(String usu, String pass, short id) {
+		return 1 == this.jdbcTemplate.update("SELECT aceptaasignacion(?, ?, ?)",
+				usu, pass, id);
 	}
 
 	@Override
-	public boolean rechazaAsignacion(String usu, String pass) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean rechazaAsignacion(String usu, String pass, short id) {
+		return 1 == this.jdbcTemplate.update("SELECT aceptaasignacion(?, ?, ?)",
+				usu, pass, id);
 	}
 
 	@Override
-	public boolean petCambioAsignacion(String usu, String pass, String comentario) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean petCambioAsignacion(String usu, String pass, short id, String comentario) {
+		return 1 == this.jdbcTemplate.update("SELECT aceptaasignacion(?, ?, ?, ?)",
+				usu, pass, id, comentario);
 	}
 
 }
