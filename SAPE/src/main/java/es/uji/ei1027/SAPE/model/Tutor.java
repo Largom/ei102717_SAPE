@@ -6,46 +6,53 @@ public class Tutor {
 	String correo;
 	String despacho;
 	String departamento;
-
-	
-	
+	/**
+	 * Constructor por defecto de Tutor
+	 */
 	public Tutor() {
 		super();
-		
+		this.nombre = null;
+		this.correo = null;
+		this.despacho = null;
+		this.departamento = null;
 	}
-
-	public Tutor(String nombre, String correo, String despacho, String departamento) {
+	/**
+	 * Constructor de Tutor con los siguientes parametros:
+	 * @param nombre
+	 * @param correo
+	 * @param despacho
+	 * @param departamento
+	 */
+	public Tutor(final String nombre, final String correo, final String despacho, final String departamento) {
 		super();
 		this.nombre = nombre;
 		this.correo = correo;
 		this.despacho = despacho;
 		this.departamento = departamento;
 	}
-	
+	/**
+	 * @return el nombre
+	 */
 	public final String getNombre() {
 		return nombre;
 	}
-	public final void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+	/**
+	 * @return el correo
+	 */
 	public final String getCorreo() {
 		return correo;
 	}
-	public final void setCorreo(String correo) {
-		this.correo = correo;
-	}
+	/**
+	 * @return el despacho
+	 */
 	public final String getDespacho() {
 		return despacho;
 	}
-	public final void setDespacho(String despacho) {
-		this.despacho = despacho;
-	}
+	/**
+	 * @return el departamento
+	 */
 	public final String getDepartamento() {
 		return departamento;
 	}
-	public final void setDepartamento(String departamento) {
-		this.departamento = departamento;
-	}
-
-
+	
 }

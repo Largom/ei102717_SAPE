@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Ver estudiante</title>
+		<meta charset="UTF-8" />
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+	</head>
+	<body>
+		<h2>Ver estudiante</h2>
+		<form action="#" method="post" th:action="@{/estudiante/update/{usuario} {usuario=${estudiante.getUsuario()}}}" th:object="${estudiante}">
+			<table>
+				<tbody>
+					<tr>
+						<td>Usuario</td>
+						<td><input th:field="*{usuario}" type="text" readonly="readonly" disabled="disabled" /></td>
+					</tr>
+					<tr>
+						<td>Nombre</td>
+						<td><input th:field="*{nombre}" type="text" readonly="readonly" disabled="disabled" /></td>
+					</tr>
+					<tr>
+						<td>DNI</td>
+						<td><input th:field="*{dni}" type="text" readonly="readonly" disabled="disabled" /></td>
+					</tr>
+					<tr>
+						<td>N&uacute;mero de cr&eacute;ditos aprobados</td>
+						<td><input th:field="*{numeroCreditosAprobados}" type="number" min="150" max="260" readonly="readonly" disabled="disabled" /></td>
+					</tr>
+					<tr>
+						<td>N&uacute;mero de asignaturas pendientes 4t</td>
+						<td><input th:field="*{numeroAsignaturasPendientes4t}" type="number" min="0" max="12" readonly="readonly" disabled="disabled" /></td>
+					</tr>
+					<tr>
+						<td>Semestre de inicio</td>
+						<td><select th:field="*{semestreInicioEstancia}">
+							<option value="">&nbsp;</option>
+							<option th:each="semestre: ${T(es.uji.ei1027.SAPE.model.MenuSemestre).values()}"
+     							th:value="${semestre}" th:text="${semestre.getDescripcion()}" th:selected="${semestre==semestreInicioEstancia}">
+     						</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td>Orden</td>
+						<td><input th:field="*{orden}" type="number" readonly="readonly" disabled="disabled" /></td>
+					</tr>
+					<tr>
+						<td>Itinerario</td>
+						<td><select th:field="*{itinerario}">
+							<option value="">&nbsp;</option>
+							<option th:each="iti: ${T(es.uji.ei1027.SAPE.model.MenuItinerario).values()}"
+     							th:value="${iti}" th:text="${iti.getDescripcion()}" th:selected="${iti==itinerario}">
+     						</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="Modificar estudiante" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</body>
+</html>
