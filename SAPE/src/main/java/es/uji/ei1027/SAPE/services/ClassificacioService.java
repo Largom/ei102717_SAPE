@@ -1,4 +1,4 @@
-package es.uji.ei1027.clubesportiu.services;
+/*package es.uji.ei1027.clubesportiu.services;
 
 import java.util.List;
 import java.util.Map;
@@ -9,3 +9,4 @@ public interface ClassificacioService {
 	Map<String, List<Nadador>> getClassificationByCountry(String prova);
 	Map<String, List<Nadador>> getClassificationByProva(String pais);
 }
+*/

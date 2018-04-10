@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Ver estudiante</title>
+	<title>Crear nuevo estudiante</title>
 	<meta charset="UTF-8" />
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-<h2>Ver estudiante</h2>
+<h2>Nuevo estudiante</h2>
 
-<form action="#" method="post" th:action="@{/nadador/update/{nom} {nom=${nadador.nom}}}" th:object="${nadador}">
+<form action="#" method="post" th:action="@{/estudiante/add}" th:object="${estudiante}">
 <table>
 	<tbody>
 		<tr>
@@ -36,11 +36,11 @@
 			<td><input th:field="*{orden}" type="text" /></td>
 		</tr>
 		<tr>
-			<td>Itinerario</td>
-			<td><input type="text" /></td>
+			<td>itinerario</td>
+			<td><input th:field="*{itinerario}" type="text" /></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" value="Modificar estudiante" /></td>
+			<td colspan="2"><input type="submit" value="Añadir estudiante" /></td>
 		</tr>
 	</tbody>
 </table>
