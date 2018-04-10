@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package es.uji.ei1027.SAPE.controller;
+=======
+/*package es.uji.ei1027.SAPE.controller;
+>>>>>>> 7741ad94ea6626ee8a01d9a36dbc602365ce6d30
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,16 +13,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+<<<<<<< HEAD
+=======
+import es.uji.ei1027.SAPE.dao.DaoEmpresa;
+>>>>>>> 7741ad94ea6626ee8a01d9a36dbc602365ce6d30
 import es.uji.ei1027.SAPE.model.Empresa;
 
 @Controller
 @RequestMapping("/empresa")
 public class EmpresaController {
 	
+<<<<<<< HEAD
 	private EmpresaDAO empresaDao;
 	
 	@Autowired
 	public void setEmpresaDao(EmpresaDAO empresaDao) {
+=======
+	private DaoEmpresa empresaDao;
+	
+	@Autowired
+	public void setEmpresaDao(DaoEmpresa empresaDao) {
+>>>>>>> 7741ad94ea6626ee8a01d9a36dbc602365ce6d30
 		this.empresaDao = empresaDao;
 	}
 	
@@ -65,4 +80,9 @@ public class EmpresaController {
 		return "redirect:../list";
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+*/
+>>>>>>> 7741ad94ea6626ee8a01d9a36dbc602365ce6d30
