@@ -1,40 +1,49 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"> 
-	<head>
-		<title>Crear nou nadador</title>
-		<meta charset="UTF-8" />
-		<link rel="stylesheet"       
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	</head>
-	<body>
-		<h2>Nou nadador</h2>
-		<form action="#" th:action="@{/nadador/update/{nom} {nom=${nadador.nom}}}"
-			th:object="${nadador}" method="post">
-			<table>
-				<tr>
-					<td><label>Nom</label></td>
-					<td><input type="text" th:field="*{nom}" /></td>
-				</tr>
-				<tr>
-					<td><label>Num. Federat</label></td>
-					<td><input type="text" th:field="*{numFederat}" /></td>
-				</tr>
-				<tr>
-					<td><label>Pais</label></td>
-					<td><input type="text" th:field="*{pais}" /></td>
-				</tr>
-				<tr>
-					<td><label>Edat</label></td>
-					<td><input type="number" th:field="*{edat}" /></td>
-				</tr>
-				<tr>
-					<td><label>Sexe</label></td>
-					<td><input type="text" th:field="*{sexe}" /></td>
-				</tr>
-				<tr>
-				    <td colspan="2"><input type="submit" value="Modificar nadador" /></td>
-				</tr>
-			</table>
-		</form>
-	</body>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Ver estudiante</title>
+	<meta charset="UTF-8" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<h2>Ver estudiante</h2>
+
+<form action="#" method="post" th:action="@{/nadador/update/{nom} {nom=${nadador.nom}}}" th:object="${nadador}">
+<table>
+	<tbody>
+		<tr>
+			<td>DNI</td>
+			<td><input th:field="*{dni}" type="text" /></td>
+		</tr>
+		<tr>
+			<td>Nombre</td>
+			<td><input th:field="*{nombre}" type="text" /></td>
+		</tr>
+		<tr>
+			<td>N&uacute;mero de cr&eacute;ditos aprobados</td>
+			<td><input th:field="*{numeroCreditosAprobados}" type="text" /></td>
+		</tr>
+		<tr>
+			<td>N&uacute;mero de asignaturas pendientes 4t</td>
+			<td><input th:field="*{numeroAsignaturasPendientes4t}" type="text" /></td>
+		</tr>
+		<tr>
+			<td>Semestre de inicio</td>
+			<td><input th:field="*{semestreInicioEstancia}" type="text" /></td>
+		</tr>
+		<tr>
+			<td>Orden</td>
+			<td><input th:field="*{orden}" type="text" /></td>
+		</tr>
+		<tr>
+			<td>Itinerario</td>
+			<td><input type="text" /></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Modificar estudiante" /></td>
+		</tr>
+	</tbody>
+</table>
+</form>
+</body>
 </html>

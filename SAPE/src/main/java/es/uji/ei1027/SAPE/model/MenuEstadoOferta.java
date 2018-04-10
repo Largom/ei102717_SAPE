@@ -1,7 +1,7 @@
 package es.uji.ei1027.SAPE.model;
 
 public enum MenuEstadoOferta {
-	SINDEFINIR("Sin definir"), INTRODUCIDA("Introducida"), PENDIENTEREVISION("Pendiente de revision"), ACEPTADA("Aceptada"), RECHAZADA("Rechazada"), VISIBLEALUMNOS("Visible a alumnos"), ASIGNADA("Asignada");
+	SINDEFINIR("sin definir"), INTRODUCIDA("introducida"), PENDIENTEREVISION("pendiente de revisión"), ACEPTADA("aceptada"), RECHAZADA("rechazada"), VISIBLE("visible"), ASIGNADA("asignada");
 
 	private String descripcion;
 	

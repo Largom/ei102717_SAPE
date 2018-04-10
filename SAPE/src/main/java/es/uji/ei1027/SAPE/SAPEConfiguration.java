@@ -22,19 +22,9 @@ public class SAPEConfiguration {
 	
 	@Bean
 	@Primary
-    public NadadorDao nadadorJdbcDAO(){
-         return new NadadorJdbcDao();
+    public DaoEstudiante estudianteJdbcDAO(){
+         return new JdbcDaoEstudiante();
     }
 	
-	@Bean
-	@Primary
-    public ClassificacioDao classifJdbcDAO(){
-         return new ClassificacioJdbcDao();
-    }
 	
-	@Bean
-	@Primary
-    public ProvaDao provaJdbcDAO(){
-         return new ProvaJdbcDao();
-    }
 }

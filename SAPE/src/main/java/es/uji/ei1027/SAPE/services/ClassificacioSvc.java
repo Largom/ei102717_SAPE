@@ -1,4 +1,4 @@
-package es.uji.ei1027.clubesportiu.services;
+/*package es.uji.ei1027.clubesportiu.services;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,3 +55,4 @@ public class ClassificacioSvc implements ClassificacioService {
 		return nadadorsPerProva;
 	}
 }
+*/

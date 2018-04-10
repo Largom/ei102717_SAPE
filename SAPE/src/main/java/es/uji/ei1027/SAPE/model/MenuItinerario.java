@@ -2,7 +2,7 @@ package es.uji.ei1027.SAPE.model;
 
 public enum MenuItinerario {
 	
-	SOFTWARE("Ingeniera del software"), SISTEMAS("Sistemas de la información"), TECNOLOGIA("Tecnología de la información"), HARDWARE("Ingenieria de computadores");
+	SOFTWARE("enginyeria del programari"), SISTEMAS("sistemes d'informació"), TECNOLOGIA("tecnologies de la informació"), HARDWARE("enginyeria de computadors");
 	
 	private String descripcion;
 	
@@ -29,8 +29,20 @@ public enum MenuItinerario {
 	public String getDescripcion(){
 		return descripcion;
 	}
-
-
 	
+	public static MenuItinerario buscar(String descrip){
+		if (descrip!=null)
+			switch (descrip) {
+				case "enginyeria del programari":
+					return MenuItinerario.SOFTWARE;
+				case "sistemes d'informació":
+					return MenuItinerario.SISTEMAS;
+				case "tecnologies de la informació":
+					return MenuItinerario.TECNOLOGIA;
+				case "enginyeria de computadors":
+					return MenuItinerario.HARDWARE;
+			}
+		return null;
+	}	
 	
 }
