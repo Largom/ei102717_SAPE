@@ -2,7 +2,7 @@ package es.uji.ei1027.SAPE.model;
 
 public enum MenuSemestre {
 	
-	PRIMERO("1º semestre"), SEGUNDO("2º semestre"), VERANO("verano");
+	PRIMERO("1º semestre"), SEGUNDO("2º semestre"), TODO("todo el curso");
 	
 	private String descripcion;
 	

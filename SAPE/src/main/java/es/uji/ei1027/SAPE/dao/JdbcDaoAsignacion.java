@@ -73,14 +73,14 @@ public class JdbcDaoAsignacion implements DaoAsignacion{
 	@Override
 	public List<Asignacion> getAsignaciones(String usu, String pass) {
 		return this.jdbcTemplate.query(
-				"SELECT * FROM verasignaciones(?, ?)",
+				"SELECT * FROM verasignacion(?, ?)",
 				new AsignacionMapper());
 	}
 
 	@Override
 	public Asignacion getAsignacion(String usu, String pass, short id) {
 		return this.jdbcTemplate.queryForObject(
-				"SELECT * FROM verasignaciones(?, ?, ?)",
+				"SELECT * FROM verasignacion(?, ?, ?)",
 				new Object[] {usu, pass, id},
 				new AsignacionMapper());
 	}
