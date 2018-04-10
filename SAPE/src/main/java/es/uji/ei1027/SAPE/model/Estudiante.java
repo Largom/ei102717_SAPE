@@ -7,7 +7,7 @@ public class Estudiante extends Personal{
 	private String nombre;
 	private int numeroCreditosAprobados;
 	private int numeroAsignaturasPendientes4t;
-	private MenuSemestre semestreInicioEstancia;	
+	private MenuSemestre semestreInicioEstancia;
 	private int orden;
 	private MenuItinerario itinerario;
 	
@@ -53,7 +53,7 @@ public class Estudiante extends Personal{
 			final int numeroAsignaturasPendientes4t, final MenuSemestre semestreInicioEstancia, final int orden,
 			final MenuItinerario itinerario) {
 		super(usuario, null);
-		if (numeroAsignaturasPendientes4t<0 || numeroAsignaturasPendientes4t>12 || numeroCreditosAprobados<148 || numeroCreditosAprobados>260) {
+		if (numeroAsignaturasPendientes4t<0 || numeroAsignaturasPendientes4t>12 || numeroCreditosAprobados<149.4 || numeroCreditosAprobados>260) {
 			throw new IllegalArgumentException();
 		}
 		this.dni = dni;
