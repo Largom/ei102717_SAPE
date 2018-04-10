@@ -29,8 +29,8 @@
 			<td th:text="${estudiante.semestreInicioEstancia}">&nbsp;</td>
 			<td th:text="${estudiante.orden}">&nbsp;</td>
 			<td th:text="${estudiante.itineario}">&nbsp;</td>
-			<td><a th:href="@{/estudiante/update/{estudiante.getUsuario()}(usuario=${estudiante.getUsuario()})}">Edita</a></td>
-			<td><a th:href="@{/estudiante/delete/{estudiante.getUsuario()}(usuario=${estudiante.getUsuario()})}">Borra</a></td>
+			<td><a th:href="@{/estudiante/update/{estudiante.getUsuario()}(usuario=${estudiante.getUsuario()})}">Modifica estudiante</a></td>
+			<td><a th:href="@{/estudiante/delete/{estudiante.getUsuario()}(usuario=${estudiante.getUsuario()})}">Elimina estudiante</a></td>
 		</tr>
 	</tbody>
 </table>
