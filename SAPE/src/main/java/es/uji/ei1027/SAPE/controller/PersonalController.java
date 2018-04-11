@@ -12,7 +12,7 @@ import es.uji.ei1027.SAPE.model.*;
 @Controller
 @RequestMapping("/personal")
 public class PersonalController {
-
+/**
 	
 	private PersonalDAO personalDAO;
 	
@@ -37,6 +37,6 @@ public class PersonalController {
 	}
 	
 
-	
+**/
 }
 */

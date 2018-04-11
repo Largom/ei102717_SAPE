@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/tutor")
 public class TutorController {
-
+/**
 	private TutorDAO tutorDAO;
 	
 	
@@ -32,6 +32,6 @@ public class TutorController {
 		model.addAttribute("perfil", tutorDAO.getTutor());
 		return "tutor/perfil";
 	}
-	
+**/
 }
 */
