@@ -1,6 +1,5 @@
-<<<<<<< HEAD
+
 package es.uji.ei1027.SAPE.controller;
-=======
 /*package es.uji.ei1027.SAPE.controller;
 >>>>>>> 7741ad94ea6626ee8a01d9a36dbc602365ce6d30
 
@@ -80,9 +79,9 @@ public class EmpresaController {
 		return "redirect:../list";
 	}
 
-<<<<<<< HEAD
+
 }
-=======
+
 }
 */
->>>>>>> 7741ad94ea6626ee8a01d9a36dbc602365ce6d30
+
