@@ -29,8 +29,20 @@ public enum MenuItinerario {
 	public String getDescripcion(){
 		return descripcion;
 	}
-
-
 	
+	public static MenuItinerario buscar(String descrip){
+		if (descrip!=null)
+			switch (descrip) {
+				case "enginyeria del programari":
+					return MenuItinerario.SOFTWARE;
+				case "sistemes d'informació":
+					return MenuItinerario.SISTEMAS;
+				case "tecnologies de la informació":
+					return MenuItinerario.TECNOLOGIA;
+				case "enginyeria de computadors":
+					return MenuItinerario.HARDWARE;
+			}
+		return null;
+	}	
 	
 }
