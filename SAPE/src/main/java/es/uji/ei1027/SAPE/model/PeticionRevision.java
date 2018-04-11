@@ -4,29 +4,59 @@ import java.util.Date;
 
 public class PeticionRevision {
 	
+	private short orden;
 	private Date fecha;
 	private String textoPeticion;
 	
-	
+	/**
+	 * Constructor de Peticion de Revision por defecto
+	 */
 	public PeticionRevision() {
 		super();
+		this.orden = 0;
+		this.fecha = null;
+		this.textoPeticion = null;
 	}
 
-
-	public PeticionRevision(Date fecha, String textoPeticion) {
+	/**
+	 * Constructor de Peticion de Revision
+	 * @param orden
+	 * @param fecha
+	 * @param textoPeticion
+	 */
+	public PeticionRevision(final short orden, final Date fecha, final String textoPeticion) {
 		super();
+		this.orden = orden;
 		this.fecha = fecha;
 		this.textoPeticion = textoPeticion;
 	}
 
+	/**
+	 * @return el textoPeticion
+	 */
+	public final String getTextoPeticion() {
+		return textoPeticion;
+	}
 
-	public final Date getFecha() {return fecha;}
-	public final void setFecha(Date fecha) {this.fecha = fecha;}
+	/**
+	 * @param textoPeticion the textoPeticion to set
+	 */
+	public final void setTextoPeticion(final String textoPeticion) {
+		this.textoPeticion = textoPeticion;
+	}
 
+	/**
+	 * @return el orden
+	 */
+	public final short getOrden() {
+		return orden;
+	}
 
-	public final String getTextoPeticion() {return textoPeticion;}
-	public final void setTextoPeticion(String textoPeticion) {this.textoPeticion = textoPeticion;}
-		
+	/**
+	 * @return the fecha
+	 */
+	public final Date getFecha() {
+		return fecha;
+	}
 	
-
 }

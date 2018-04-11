@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Gestionar Estudiantes</title>
+	<meta charset="UTF-8" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<h1>Lista de Estudiantes</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>DNI</th>
+			<th>Nombre</th>
+			<th>N&uacute;mero de cr&eacute;ditos aprobados</th>
+			<th>N&uacute;mero de asignaturas pendientes 4t</th>
+			<th>Semestre de inicio</th>
+			<th>Orden</th>
+			<th>itinerario</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="estudiante: ${estudiantes}">
+			<td th:text="${estudiante.dni}">&nbsp;</td>
+			<td th:text="${estudiante.nombre}">&nbsp;</td>
+			<td th:text="${estudiantes.numeroCreditosAprobados}">&nbsp;</td>
+			<td th:text="${estudiante.numeroAsignaturasPendientes4t}">&nbsp;</td>
+			<td th:text="${estudiante.semestreInicioEstancia}">&nbsp;</td>
+			<td th:text="${estudiante.orden}">&nbsp;</td>
+			<td th:text="${estudiante.itineario}">&nbsp;</td>
+			<td><a th:href="@{/estudiante/update/{estudiante.getUsuario()}(usuario=${estudiante.getUsuario()})}">Modifica estudiante</a></td>
+			<td><a th:href="@{/estudiante/delete/{estudiante.getUsuario()}(usuario=${estudiante.getUsuario()})}">Elimina estudiante</a></td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

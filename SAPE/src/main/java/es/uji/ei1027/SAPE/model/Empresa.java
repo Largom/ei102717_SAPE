@@ -5,35 +5,64 @@ public class Empresa extends Personal{
 	private String nombre;
 	private String cif;
 	private String domicilio;
-	private int telefonoPrincipal;
-	
-	
+	private String telefonoPrincipal;
+	/**
+	 * 
+	 */
 	public Empresa() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	public Empresa(String nombre, String cif, String domicilio, int telefonoPrincipal) {
+	/**
+	 * @param nombre
+	 * @param cif
+	 * @param domicilio
+	 * @param telefonoPrincipal
+	 */
+	public Empresa(final String nombre, final String cif, final String domicilio, final String telefonoPrincipal) {
 		super();
 		this.nombre = nombre;
 		this.cif = cif;
 		this.domicilio = domicilio;
 		this.telefonoPrincipal = telefonoPrincipal;
 	}
-	
-	public final String getNombre(){return nombre;}
-	public final void setNombre(final String otroNombre){ this.nombre = otroNombre;}
-	
-	public final String getCif(){ return cif;}
-	public final void setCif(final String otroCif){ this.cif = otroCif;}
-	
-	public final String getDomicilio(){ return domicilio;}
-	public final void setDomicilio(final String otroDomicilio){ this.domicilio = otroDomicilio;}
-	
-	public final int getTelefonoPrincipal(){ return telefonoPrincipal;}
-	public final void setTelefonoPrincipal(final int tel){ this.telefonoPrincipal = tel;}
-	
-	@Override
-	public String toString(){
-		
-		return "Datos Empresa: nombre: "+ nombre +", cif: "+ cif +", domicilio: "+ domicilio +", telefono: "+ telefonoPrincipal;
+	/**
+	 * @param usuario
+	 * @param pass
+	 * @param Empresa
+	 */
+	public Empresa(final String usuario, final String pass, final Empresa e) {
+		super(usuario, pass);
+		this.nombre = e.nombre;
+		this.cif = e.cif;
+		this.domicilio = e.domicilio;
+		this.telefonoPrincipal = e.telefonoPrincipal;
 	}
+	/**
+	 * @return the nombre
+	 */
+	public final String getNombre() {
+		return nombre;
+	}
+	/**
+	 * @return the cif
+	 */
+	public final String getCif() {
+		return cif;
+	}
+	/**
+	 * @return the domicilio
+	 */
+	public final String getDomicilio() {
+		return domicilio;
+	}
+	/**
+	 * @return the telefonoPrincipal
+	 */
+	public final String getTelefonoPrincipal() {
+		return telefonoPrincipal;
+	}
+	
+	
+	
 }

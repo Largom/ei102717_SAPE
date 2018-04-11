@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+<<<<<<< HEAD
+=======
+import es.uji.ei1027.SAPE.dao.DaoEstudiante;
+>>>>>>> 7741ad94ea6626ee8a01d9a36dbc602365ce6d30
 import es.uji.ei1027.SAPE.model.Estudiante;
 
 @Controller
@@ -16,10 +20,17 @@ import es.uji.ei1027.SAPE.model.Estudiante;
 
 public class EstudianteController {
 	
+<<<<<<< HEAD
 	private EstudianteDao estudianteDao;
 	
 	@Autowired
 	public  void setEstudianteDao(EstudianteDao estudianteDao) {
+=======
+	private DaoEstudiante estudianteDao;
+	
+	@Autowired
+	public  void setEstudianteDao(DaoEstudiante estudianteDao) {
+>>>>>>> 7741ad94ea6626ee8a01d9a36dbc602365ce6d30
 		this.estudianteDao = estudianteDao;
 	}
 	
@@ -31,6 +42,7 @@ public class EstudianteController {
 	
 	@RequestMapping(value="/add")
 	public String addEstudiante(Model model) {
+<<<<<<< HEAD
 		model.addAttribute("estudiante", new Estudiante());
 		return "estudiante/add";
 	}
@@ -40,6 +52,22 @@ public class EstudianteController {
 		if(estudianteDao.getPassword() == password) {
 			model.addAttribute("estudiante", estudianteDao.getEstudiante(user));
 		}
+=======
+		Estudiante e = new Estudiante();
+		model.addAttribute("estudiante", e);
+		estudianteDao.addEstudiante(e);
+		return "estudiante/add";
+	}
+	
+	@RequestMapping("/list/{estudiante}") 
+	public String verEstudiante(Model model, String user, String password) {
+		Estudiante e = estudianteDao.getEstudiante(user);
+		model.addAttribute("estudiante", e);
+		if(e.getPass() == password) {
+			model.addAttribute("estudiante", estudianteDao.getEstudiante(user));
+		}
+		return "estudiante/update";
+>>>>>>> 7741ad94ea6626ee8a01d9a36dbc602365ce6d30
 	}
 		
 	@RequestMapping(value="/add", method=RequestMethod.POST) 
@@ -76,4 +104,9 @@ public class EstudianteController {
 	@RequestMapping("/semestre")
 	public String verPreferencia() {
 		return "bla, bla";
+<<<<<<< HEAD
 	}
+=======
+	}
+}
+>>>>>>> 7741ad94ea6626ee8a01d9a36dbc602365ce6d30
