@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.SAPE.model.*;
-
+/*
 @Controller
 @RequestMapping("/personal")
 public class PersonalController {
@@ -39,3 +39,4 @@ public class PersonalController {
 
 **/
 }
+*/
