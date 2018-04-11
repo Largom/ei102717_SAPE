@@ -14,7 +14,7 @@ import es.uji.ei1027.SAPE.model.Empresa;
 @Controller
 @RequestMapping("/empresa")
 public class EmpresaController {
-	
+/**	
 	private EmpresaDAO empresaDao;
 	
 	@Autowired
@@ -64,5 +64,5 @@ public class EmpresaController {
 		empresaDao.deleteEmpresa(cif);
 		return "redirect:../list";
 	}
-
+**/
 }

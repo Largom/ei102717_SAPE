@@ -16,7 +16,7 @@ import es.uji.ei1027.SAPE.model.OfertaProyecto;
 @Controller
 @RequestMapping("/oferta")
 public class OfertaController {
-	
+/**
 	private OfertaDao ofertaDao;
 	
 	@Autowired
@@ -76,5 +76,5 @@ public class OfertaController {
 		}
 		
 		// public String estadoOferta
-
+**/
 }

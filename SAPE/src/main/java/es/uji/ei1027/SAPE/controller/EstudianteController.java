@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.uji.ei1027.SAPE.dao.DaoEstudiante;
 import es.uji.ei1027.SAPE.model.Estudiante;
 
 @Controller
@@ -16,10 +17,10 @@ import es.uji.ei1027.SAPE.model.Estudiante;
 
 public class EstudianteController {
 	
-	private EstudianteDao estudianteDao;
+	private DaoEstudiante estudianteDao;
 	
 	@Autowired
-	public  void setEstudianteDao(EstudianteDao estudianteDao) {
+	public  void setEstudianteDao(DaoEstudiante estudianteDao) {
 		this.estudianteDao = estudianteDao;
 	}
 	
@@ -37,9 +38,11 @@ public class EstudianteController {
 	
 	@RequestMapping("/list/{dni}") 
 	public String verEstudiante(Model model, String user, String password) {
-		if(estudianteDao.getPassword() == password) {
-			model.addAttribute("estudiante", estudianteDao.getEstudiante(user));
+		Estudiante e=estudianteDao.getEstudiante(user);
+		if(e.getPass() == password) {
+			model.addAttribute("estudiante", e);
 		}
+		return "estudiante/update";
 	}
 		
 	@RequestMapping(value="/add", method=RequestMethod.POST) 
@@ -71,9 +74,10 @@ public class EstudianteController {
 	public String processDelete(@PathVariable String id) {
 		estudianteDao.deleteEstudiante(id);
 		return "redirect:../list";
-		}
+	}
 	
 	@RequestMapping("/semestre")
 	public String verPreferencia() {
 		return "bla, bla";
 	}
+}
