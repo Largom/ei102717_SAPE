@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+/*Alineacion tablas*/
+table {
+	text-align: left;
+	width: 45%;
+}
+
+td, th, a, button {
+	font-family: 'Catamaran', sans-serif;
+}
+
+td, th {
+	padding: 3px;
+}
+
+.oferta {
+	margin: 5px 50px; /*Margen de arriba y margen hacia la derecha*/
+}
