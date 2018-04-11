@@ -49,7 +49,7 @@ public class JdbcDaoAsignacion implements DaoAsignacion{
 	public void addAsignacion(Asignacion asig) {
 		this.jdbcTemplate.update(
 				"INSERT INTO public.\"ASIGNACION\"(oferta, estudiante, tutor, fechapropuesta, fechacambioestado, fechatraspasoiglu, "
-				+ "comentariopetcambio, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+				+ "comentariopetcambio, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?::estadoasignacion)",
 				asig.getOferta(), asig.getEstudiante(), asig.getTutor(), asig.getFechaPropuesta(), asig.getFechaCambioEstado(),
 				asig.getFechaTraspasoIGLU(), asig.getComentarioPerCambio(), asig.getEstado().getDescripcion());
 	}
@@ -58,7 +58,7 @@ public class JdbcDaoAsignacion implements DaoAsignacion{
 	public void updateAsignacion(Asignacion asig) {
 		this.jdbcTemplate.update(
 				"UPDATE public.\"ASIGNACION\" SET (oferta, estudiante, tutor, fechapropuesta, fechacambioestado, fechatraspasoiglu, "
-				+ "comentariopetcambio, estado)=(?, ?, ?, ?, ?, ?, ?, ?) WHERE id = ?",
+				+ "comentariopetcambio, estado)=(?, ?, ?, ?, ?, ?, ?, ?::estadoasignacion) WHERE id = ?",
 				asig.getOferta(), asig.getEstudiante(), asig.getTutor(), asig.getFechaPropuesta(), asig.getFechaCambioEstado(),
 				asig.getFechaTraspasoIGLU(), asig.getComentarioPerCambio(), asig.getEstado().getDescripcion(), asig.getId());
 	}
@@ -87,7 +87,7 @@ public class JdbcDaoAsignacion implements DaoAsignacion{
 
 	@Override
 	public boolean crearEditarAsignacion(String usu, String pass, Asignacion asig) {
-		return 1 == this.jdbcTemplate.update("SELECT crearasignacion(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+		return 1 == this.jdbcTemplate.update("SELECT crearasignacion(?, ?, ?, ?, ?, ?, ?, ?, ?::estadoasignacion)",
 				usu, pass, asig.getOferta(), asig.getEstudiante(), asig.getTutor(), asig.getFechaPropuesta(),
 				asig.getFechaTraspasoIGLU(), asig.getId(), asig.getEstado());
 	}
@@ -106,13 +106,13 @@ public class JdbcDaoAsignacion implements DaoAsignacion{
 
 	@Override
 	public boolean rechazaAsignacion(String usu, String pass, short id) {
-		return 1 == this.jdbcTemplate.update("SELECT aceptaasignacion(?, ?, ?)",
+		return 1 == this.jdbcTemplate.update("SELECT rechazaasignacion(?, ?, ?)",
 				usu, pass, id);
 	}
 
 	@Override
 	public boolean petCambioAsignacion(String usu, String pass, short id, String comentario) {
-		return 1 == this.jdbcTemplate.update("SELECT aceptaasignacion(?, ?, ?, ?)",
+		return 1 == this.jdbcTemplate.update("SELECT petcambioasignacion(?, ?, ?, ?)",
 				usu, pass, id, comentario);
 	}
 

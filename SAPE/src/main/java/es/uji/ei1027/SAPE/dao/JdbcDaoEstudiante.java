@@ -24,11 +24,13 @@ public class JdbcDaoEstudiante implements DaoEstudiante{
 
 	private static final class EstudianteMapper implements RowMapper<Estudiante> {
 		public Estudiante mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Estudiante estudiante = new Estudiante(rs.getString(""), null, null, rowNum, rowNum, null, rowNum, null);
-			return estudiante;
+			return new Estudiante(rs.getString("usuario"), rs.getString("dni"), rs.getString("nombre"),
+					rs.getInt("numerocreditosaprobados"), rs.getInt("numasignaturaspendiente4t"),
+					MenuSemestre.buscar(rs.getString("semestreinicioestancia")),
+					rs.getInt("orden"), MenuItinerario.buscar(rs.getString("itinerario")));
 		}
 	}
-
+	
 	@Override
 	public List<Estudiante> getEstudiantes() {
 		return this.jdbcTemplate.query(
@@ -49,7 +51,7 @@ public class JdbcDaoEstudiante implements DaoEstudiante{
 		this.jdbcTemplate.update(
 				"INSERT INTO public.\"ESTUDIANTE\"(usuario, nombre, dni, orden, "
 				+ "numerocreditosaprobados, numasignaturaspendiente4t, itinerario, "
-				+ "semestreinicioestancia) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+				+ "semestreinicioestancia) VALUES (?, ?, ?, ?, ?, ?, ?::itinerario, ?::semestre)",
 				est.getUsuario(), est.getNombre(), est.getDni(), est.getOrden(),
 				est.getNumeroCreditosAprobados(), est.getNumeroAsignaturasPendientes4t(),
 				est.getItinerario().getDescripcion(), est.getSemestreInicioEstancia().getDescripcion());
@@ -60,7 +62,7 @@ public class JdbcDaoEstudiante implements DaoEstudiante{
 		this.jdbcTemplate.update(
 				"UPDATE public.\"ESTUDIANTE\" SET (nombre, dni, orden, "
 				+ "numerocreditosaprobados, numasignaturaspendiente4t, itinerario, "
-				+ "semestreinicioestancia)=(?, ?, ?, ?, ?, ?, ?, ?) WHERE usuario = ?",
+				+ "semestreinicioestancia)=(?, ?, ?, ?, ?, ?::itinerario, ?::semestre) WHERE usuario = ?",
 				est.getNombre(), est.getDni(), est.getOrden(), est.getNumeroCreditosAprobados(),
 				est.getNumeroAsignaturasPendientes4t(), est.getItinerario().getDescripcion(),
 				est.getSemestreInicioEstancia().getDescripcion(), est.getUsuario());
@@ -89,13 +91,13 @@ public class JdbcDaoEstudiante implements DaoEstudiante{
 
 	@Override
 	public boolean elegirSemestre(String usu, String pass, MenuSemestre semestre) {
-		return 1 == this.jdbcTemplate.update("SELECT elegirsemestre(?, ?, ?)",
+		return 1 == this.jdbcTemplate.update("SELECT elegirsemestre(?, ?, ?::semestre)",
 				usu, pass, semestre);
 	}
 
 	@Override
 	public boolean elegirItinerario(String usu, String pass, MenuItinerario itinerario) {
-		return 1 == this.jdbcTemplate.update("SELECT elegiritinerario(?, ?, ?)",
+		return 1 == this.jdbcTemplate.update("SELECT elegiritinerario(?, ?, ?::itinerario)",
 				usu, pass, itinerario);
 	}
 	

@@ -11,26 +11,28 @@
 <table>
 	<thead>
 		<tr>
-			<th>DNI</th>
+			<th>Usuario</th>
 			<th>Nombre</th>
+			<th>DNI</th>
 			<th>N&uacute;mero de cr&eacute;ditos aprobados</th>
 			<th>N&uacute;mero de asignaturas pendientes 4t</th>
 			<th>Semestre de inicio</th>
 			<th>Orden</th>
-			<th>itinerario</th>
+			<th>Itinerario</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr th:each="estudiante: ${estudiantes}">
-			<td th:text="${estudiante.dni}">&nbsp;</td>
-			<td th:text="${estudiante.nombre}">&nbsp;</td>
-			<td th:text="${estudiantes.numeroCreditosAprobados}">&nbsp;</td>
-			<td th:text="${estudiante.numeroAsignaturasPendientes4t}">&nbsp;</td>
-			<td th:text="${estudiante.semestreInicioEstancia}">&nbsp;</td>
-			<td th:text="${estudiante.orden}">&nbsp;</td>
-			<td th:text="${estudiante.itineario}">&nbsp;</td>
-			<td><a th:href="@{/estudiante/update/{estudiante.getUsuario()}(usuario=${estudiante.getUsuario()})}">Modifica estudiante</a></td>
-			<td><a th:href="@{/estudiante/delete/{estudiante.getUsuario()}(usuario=${estudiante.getUsuario()})}">Elimina estudiante</a></td>
+			<td th:text="${estudiante.getUsuario()}">&nbsp;</td>
+			<td th:text="${estudiante.getNombre()}">&nbsp;</td>
+			<td th:text="${estudiante.getDni()}">&nbsp;</td>
+			<td th:text="${estudiante.getNumeroCreditosAprobados()}">&nbsp;</td>
+			<td th:text="${estudiante.getNumeroAsignaturasPendientes4t()}">&nbsp;</td>
+			<td th:text="${estudiante.getSemestreInicioEstancia()}">&nbsp;</td>
+			<td th:text="${estudiante.getOrden()}">&nbsp;</td>
+			<td th:text="${estudiante.getItinerario()}">&nbsp;</td>
+			<td><a th:href="@{/estudiante/update/{usuario}(usuario=${estudiante.getUsuario()})}">Modifica estudiante</a></td>
+			<td><a th:href="@{/estudiante/delete/{usuario}(usuario=${estudiante.getUsuario()})}">Elimina estudiante</a></td>
 		</tr>
 	</tbody>
 </table>
