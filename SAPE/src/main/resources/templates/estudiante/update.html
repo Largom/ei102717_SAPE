@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<h2>Ver estudiante</h2>
-		<form action="#" method="post" th:action="@{/estudiante/update/{usuario} {usuario=${estudiante.getUsuario()}}}" th:object="${estudiante}">
+		<form action="#" method="post" th:action="@{/estudiante/update/{usuario} {usuario=${estudiante.usuario}}}" th:object="${estudiante}">
 			<table>
 				<tbody>
 					<tr>
@@ -33,7 +33,7 @@
 					<tr>
 						<td>Semestre de inicio</td>
 						<td><select th:field="*{semestreInicioEstancia}">
-							<option value="">&nbsp;</option>
+							<option value="null">&nbsp;</option>
 							<option th:each="semestre: ${T(es.uji.ei1027.SAPE.model.MenuSemestre).values()}"
      							th:value="${semestre}" th:text="${semestre.getDescripcion()}" th:selected="${semestre==semestreInicioEstancia}">
      						</option>
@@ -46,7 +46,7 @@
 					<tr>
 						<td>Itinerario</td>
 						<td><select th:field="*{itinerario}">
-							<option value="">&nbsp;</option>
+							<option value="null">&nbsp;</option>
 							<option th:each="iti: ${T(es.uji.ei1027.SAPE.model.MenuItinerario).values()}"
      							th:value="${iti}" th:text="${iti.getDescripcion()}" th:selected="${iti==itinerario}">
      						</option>
