@@ -1,5 +1,7 @@
 package es.uji.ei1027.SAPE.controller;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,16 +11,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
+import es.uji.ei1027.SAPE.dao.DaoEmpresa;
 import es.uji.ei1027.SAPE.model.Empresa;
 
 @Controller
 @RequestMapping("/empresa")
 public class EmpresaController {
+
 /**	
 	private EmpresaDAO empresaDao;
 	
 	@Autowired
 	public void setEmpresaDao(EmpresaDAO empresaDao) {
+
+	private DaoEmpresa empresaDao;
+	
+	@Autowired
+	public void setEmpresaDao(DaoEmpresa empresaDao) {
 		this.empresaDao = empresaDao;
 	}
 	
@@ -64,5 +74,7 @@ public class EmpresaController {
 		empresaDao.deleteEmpresa(cif);
 		return "redirect:../list";
 	}
+
 **/
 }
+
