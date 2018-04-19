@@ -12,7 +12,7 @@ public class Asignacion {
 	private Date fechaCambioEstado;
 	private Date fechaTraspasoIGLU;
 	private String comentarioPerCambio;
-	private MenuEstadoAsignacion estado;
+	private EstadoAsignacion estado;
 	
 	public Asignacion() {
 		super();
@@ -31,7 +31,7 @@ public class Asignacion {
 	 * @param estado
 	 */
 	public Asignacion(final short id, final short oferta, final String estudiante, final String tutor, final Date fechaPropuesta,
-			final Date fechaCambioEstado, final Date fechaTraspasoIGLU, final String comentarioPerCambio, final MenuEstadoAsignacion estado) {
+			final Date fechaCambioEstado, final Date fechaTraspasoIGLU, final String comentarioPerCambio, final EstadoAsignacion estado) {
 		super();
 		this.id = id;
 		this.oferta = oferta;
@@ -131,14 +131,14 @@ public class Asignacion {
 	/**
 	 * @return the estado
 	 */
-	public final MenuEstadoAsignacion getEstado() {
+	public final EstadoAsignacion getEstado() {
 		return estado;
 	}
 
 	/**
 	 * @param estado the estado to set
 	 */
-	public final void setEstado(final MenuEstadoAsignacion estado) {
+	public final void setEstado(final EstadoAsignacion estado) {
 		this.estado = estado;
 	}
 

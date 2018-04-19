@@ -10,7 +10,7 @@ public class OfertaProyecto{
 	private String tarea;
 	private Date fechaAlta;
 	private Date fechaUltimoCambio;
-	private MenuEstadoOferta estadoOferta;
+	private EstadoOferta estadoOferta;
 	
 	/**
 	 * 
@@ -22,7 +22,7 @@ public class OfertaProyecto{
 		this.tarea = null;
 		this.fechaAlta = null;
 		this.fechaUltimoCambio = null;
-		this.estadoOferta = MenuEstadoOferta.SINDEFINIR;
+		this.estadoOferta = EstadoOferta.SINDEFINIR;
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class OfertaProyecto{
 	 * @param estadoOferta
 	 */
 	public OfertaProyecto(final short id, final String objetivo, final String tarea, final Date fechaAlta,
-			final Date fechaUltimoCambio, final MenuEstadoOferta estadoOferta) {
+			final Date fechaUltimoCambio, final EstadoOferta estadoOferta) {
 		super();
 		this.id = id;
 		this.objetivo = objetivo;
@@ -89,14 +89,14 @@ public class OfertaProyecto{
 	/**
 	 * @return the estadoOferta
 	 */
-	public final MenuEstadoOferta getEstadoOferta() {
+	public final EstadoOferta getEstadoOferta() {
 		return estadoOferta;
 	}
 
 	/**
 	 * @param estadoOferta the estadoOferta to set
 	 */
-	public final void setEstadoOferta(final MenuEstadoOferta estadoOferta) {
+	public final void setEstadoOferta(final EstadoOferta estadoOferta) {
 		this.estadoOferta = estadoOferta;
 	}
 
