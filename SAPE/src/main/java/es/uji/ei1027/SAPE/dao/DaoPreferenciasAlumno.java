@@ -1,6 +1,6 @@
 package es.uji.ei1027.SAPE.dao;
 
-import java.util.List;
+import java.util.Map;
 
 import es.uji.ei1027.SAPE.model.PreferenciasAlumno;
 
@@ -13,7 +13,7 @@ public interface DaoPreferenciasAlumno {
 	void deletePreferenciasAlumno(String usuAlumno);
 */
 
-	List<PreferenciasAlumno> getPreferenciasAlumnos(String usu, String pass);
-	PreferenciasAlumno getPreferenciasAlumno(String usu, String pass, String usuAlumno);
-	boolean elegirPreferencias(String usu, String pass, PreferenciasAlumno pref);
+	Map<String, PreferenciasAlumno> getPreferenciasAlumnos(final String usu, final String pass);
+	PreferenciasAlumno getPreferenciasAlumno(final String usu, final String pass, final String usuAlumno);
+	boolean elegirPreferencias(final String usu, final String pass, final PreferenciasAlumno pref);
 }

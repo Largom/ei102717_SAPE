@@ -13,6 +13,6 @@ public interface DaoTutor {
 	void updateTutor(Tutor tut);
 	void deleteTutor(String correo);
 */
-	List<Tutor> getTutor(String usu, String pass);
-	Tutor getTutor(String usu, String pass, String correo);
+	List<Tutor> getTutor(final String usu, final String pass);
+	Tutor getTutor(final String usu, final String pass, final String correo);
 }

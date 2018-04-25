@@ -14,9 +14,9 @@ public interface DaoOfertaProyecto {
 	void deleteOfertaProyecto(Short id);
 */
 
-	Map<Short, OfertaProyecto> getOfertasProyectos(String usu, String pass);
-	OfertaProyecto getOfertaProyecto(String usu, String pass, String nif);
-	boolean crearEditarOfertaProyecto(String usu, String pass, OfertaProyecto ofePro);
-	boolean anularOfertaProyecto(String usu, String pass, short id);
-	boolean editarEstadoOfertaProyecto(String usu, String pass, short id, EstadoOferta estado);
+	Map<Short, OfertaProyecto> getOfertasProyectos(final String usu, final String pass);
+	OfertaProyecto getOfertaProyecto(final String usu, final String pass, final short id);
+	boolean crearEditarOfertaProyecto(final String usu, final String pass, final OfertaProyecto ofePro);
+	boolean anularOfertaProyecto(final String usu, final String pass, final short id);
+	boolean editarEstadoOfertaProyecto(final String usu, final String pass, final short id, final EstadoOferta estado);
 }

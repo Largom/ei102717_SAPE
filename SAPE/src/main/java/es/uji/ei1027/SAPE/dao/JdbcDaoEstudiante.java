@@ -83,6 +83,7 @@ public class JdbcDaoEstudiante implements DaoEstudiante{
 		try {
 			return this.jdbcTemplate.query(
 					"SELECT * FROM verestudiante(?, ?)",
+					new Object[] {usu, pass},
 					new EstudianteMapper()).stream().collect(Collectors.toMap(Estudiante::getUsuario, item -> item));
 		} catch (Exception e) {
 			e.printStackTrace();

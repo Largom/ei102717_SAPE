@@ -1,11 +1,13 @@
 package es.uji.ei1027.SAPE.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class PreferenciasAlumno {
 
 	private String idEstudiante;
-	private String[] preferencias;
+	private List<Short> preferencias;
 	private Date ultimoCambio;
 	private boolean cerrada;
 	
@@ -24,15 +26,13 @@ public class PreferenciasAlumno {
 	 * @param cerrada
 	 * @throws IllegalArgumentException
 	 */
-	public PreferenciasAlumno(final String idEstudiante, final String[] preferencias, final Date ultimoCambio, final boolean cerrada) throws IllegalArgumentException {
+	public PreferenciasAlumno(final String idEstudiante, final Date ultimoCambio, final boolean cerrada) throws IllegalArgumentException {
 		super();
 		this.idEstudiante = idEstudiante;
-		if (preferencias==null || preferencias.length>5)  {
-			throw new IllegalArgumentException();
-		}
-		this.preferencias = preferencias;
 		this.ultimoCambio = ultimoCambio;
 		this.cerrada = cerrada;
+		this.preferencias = new ArrayList<Short>();
+		
 	}
 
 	/**

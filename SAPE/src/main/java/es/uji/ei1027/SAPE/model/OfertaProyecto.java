@@ -1,6 +1,8 @@
 package es.uji.ei1027.SAPE.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class OfertaProyecto{
@@ -11,6 +13,7 @@ public class OfertaProyecto{
 	private Date fechaAlta;
 	private Date fechaUltimoCambio;
 	private EstadoOferta estadoOferta;
+	private Set<Itinerario> itinerarios;
 	
 	/**
 	 * 
@@ -23,6 +26,8 @@ public class OfertaProyecto{
 		this.fechaAlta = null;
 		this.fechaUltimoCambio = null;
 		this.estadoOferta = EstadoOferta.SINDEFINIR;
+		this.setItinerarios(new HashSet<Itinerario>());
+		
 	}
 
 	/**
@@ -34,7 +39,7 @@ public class OfertaProyecto{
 	 * @param estadoOferta
 	 */
 	public OfertaProyecto(final short id, final String objetivo, final String tarea, final Date fechaAlta,
-			final Date fechaUltimoCambio, final EstadoOferta estadoOferta) {
+			final Date fechaUltimoCambio, final EstadoOferta estadoOferta, final Set<Itinerario> itinerarios) {
 		super();
 		this.id = id;
 		this.objetivo = objetivo;
@@ -42,6 +47,7 @@ public class OfertaProyecto{
 		this.fechaAlta = fechaAlta;
 		this.fechaUltimoCambio = fechaUltimoCambio;
 		this.estadoOferta = estadoOferta;
+		this.itinerarios = itinerarios;
 	}
 
 	/**
@@ -112,6 +118,20 @@ public class OfertaProyecto{
 	 */
 	public final Date getFechaUltimoCambio() {
 		return fechaUltimoCambio;
+	}
+
+	/**
+	 * @return the itinerarios
+	 */
+	public Set<Itinerario> getItinerarios() {
+		return itinerarios;
+	}
+
+	/**
+	 * @param itinerarios the itinerarios to set
+	 */
+	public void setItinerarios(Set<Itinerario> itinerarios) {
+		this.itinerarios = itinerarios;
 	}
 	
 

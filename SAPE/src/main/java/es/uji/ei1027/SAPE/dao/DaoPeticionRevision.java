@@ -15,10 +15,10 @@ public interface DaoPeticionRevision {
 	void updatePeticionRevision(PeticionRevision petRev);
 	void deletePeticionRevision(short idOferta, Date fechaOferta);
 */
-	List<PeticionRevision> getPeticionRevisiones(String usu, String pass);
-	List<PeticionRevision> getPeticionRevisiones(String usu, String pass, short idOferta);
-	List<PeticionRevision> getPeticionRevisiones(String usu, String pass, Date fechaOferta);
-	PeticionRevision getPeticionRevision(String usu, String pass, short idOferta, Date fechaOferta);
-	boolean crearEditarPeticionRevision(String usu, String pass, PeticionRevision petRev);
-	boolean anularPeticionRevision(String usu, String pass, PeticionRevision petRev);
+	List<PeticionRevision> getPeticionRevisiones(final String usu, final String pass);
+	List<PeticionRevision> getPeticionRevisiones(final String usu, final String pass, final short idOferta);
+	List<PeticionRevision> getPeticionRevisiones(final String usu, final String pass, final Date fechaOferta);
+	PeticionRevision getPeticionRevision(final String usu, final String pass, final short idOferta, final Date fechaOferta);
+	boolean crearEditarPeticionRevision(final String usu, final String pass, final PeticionRevision petRev);
+	boolean anularPeticionRevision(final String usu, final String pass, final PeticionRevision petRev);
 }
