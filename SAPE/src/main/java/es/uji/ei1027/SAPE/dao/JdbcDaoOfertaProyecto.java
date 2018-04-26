@@ -28,7 +28,7 @@ public class JdbcDaoOfertaProyecto implements DaoOfertaProyecto{
 
 	private static final class OfertaProyectoMapper implements RowMapper<OfertaProyecto> {
 		public OfertaProyecto mapRow(final ResultSet rs, final int rowNum) throws SQLException {
-			HashSet itinerarios = new HashSet();
+			HashSet<Itinerario> itinerarios = new HashSet<Itinerario>();
 			for(String itin : (String[])rs.getArray("itinerarios").getArray()){
 				itinerarios.add(Itinerario.buscar(itin));
 			}

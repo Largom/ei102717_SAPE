@@ -16,4 +16,5 @@ public interface DaoPreferenciasAlumno {
 	Map<String, PreferenciasAlumno> getPreferenciasAlumnos(final String usu, final String pass);
 	PreferenciasAlumno getPreferenciasAlumno(final String usu, final String pass, final String usuAlumno);
 	boolean elegirPreferencias(final String usu, final String pass, final PreferenciasAlumno pref);
+	boolean cerrarAbrirPreferencias(final String usu, final String pass, final boolean cerrado, final String usuAlumno);
 }

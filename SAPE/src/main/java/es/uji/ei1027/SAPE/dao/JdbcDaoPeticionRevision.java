@@ -97,7 +97,6 @@ public class JdbcDaoPeticionRevision implements DaoPeticionRevision{
 		try {
 			return 1 == this.jdbcTemplate.update("SELECT anularpeticionrevision(?, ?, ?, ?)",
 					usu, pass, petRev.getOrden(), petRev.getFecha());
-			// TODO FALTA EN EL PostgreSQL
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
