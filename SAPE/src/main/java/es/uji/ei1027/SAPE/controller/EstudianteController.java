@@ -32,6 +32,18 @@ public class EstudianteController {
 	
 	@RequestMapping(value="/add")
 	public String addEstudiante(Model model) {
+
+		Estudiante e = new Estudiante();
+		model.addAttribute("estudiante", e);
+		estudianteDao.addEstudiante(e);
+		return "estudiante/add";
+	}
+	
+	@RequestMapping("/list/{estudiante}") 
+	public String verEstudiante(Model model, String user, String password) {
+		Estudiante e = estudianteDao.getEstudiante(user);
+		model.addAttribute("estudiante", e);
+
 		model.addAttribute("estudiante", new Estudiante());
 		return "estudiante/add";
 	}
@@ -39,6 +51,7 @@ public class EstudianteController {
 	@RequestMapping("/list/{dni}") 
 	public String verEstudiante(Model model, String user, String password) {
 		Estudiante e=estudianteDao.getEstudiante(user);
+
 		if(e.getPass() == password) {
 			model.addAttribute("estudiante", e);
 		}
