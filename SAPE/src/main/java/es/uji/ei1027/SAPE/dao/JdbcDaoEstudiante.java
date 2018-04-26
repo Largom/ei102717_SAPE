@@ -7,30 +7,33 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import es.uji.ei1027.SAPE.model.Estudiante;
-import es.uji.ei1027.SAPE.model.MenuItinerario;
-import es.uji.ei1027.SAPE.model.MenuSemestre;
+import es.uji.ei1027.SAPE.model.Itinerario;
+import es.uji.ei1027.SAPE.model.Semestre;
 
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class JdbcDaoEstudiante implements DaoEstudiante{
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	public void setDataSource(DataSource dataSource) {
+	public void setDataSource(final DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	private static final class EstudianteMapper implements RowMapper<Estudiante> {
-		public Estudiante mapRow(ResultSet rs, int rowNum) throws SQLException {
+		public Estudiante mapRow(final ResultSet rs,final  int rowNum) throws SQLException {
 			return new Estudiante(rs.getString("usuario"), rs.getString("dni"), rs.getString("nombre"),
 					rs.getInt("numerocreditosaprobados"), rs.getInt("numasignaturaspendiente4t"),
-					MenuSemestre.buscar(rs.getString("semestreinicioestancia")),
-					rs.getInt("orden"), MenuItinerario.buscar(rs.getString("itinerario")));
+					Semestre.buscar(rs.getString("semestreinicioestancia")),
+					rs.getInt("orden"), Itinerario.buscar(rs.getString("itinerario")));
 		}
 	}
-	
+/*
 	@Override
 	public List<Estudiante> getEstudiantes() {
 		return this.jdbcTemplate.query(
@@ -73,32 +76,43 @@ public class JdbcDaoEstudiante implements DaoEstudiante{
 		this.jdbcTemplate.update(
 				"DELETE FROM public.\"ESTUDIANTE\" WHERE usuario = ?", usuario);
 	}
-
+*/
+	
 	@Override
-	public List<Estudiante> getEstudiantes(String usu, String pass) {
-		return this.jdbcTemplate.query(
-				"SELECT * FROM verestudiante(?, ?)",
-				new EstudianteMapper());
+	public Map<String, Estudiante> getEstudiantes(final String usu, final String pass) {
+		try {
+			return this.jdbcTemplate.query(
+					"SELECT * FROM verestudiante(?, ?)",
+					new Object[] {usu, pass},
+					new EstudianteMapper()).stream().collect(Collectors.toMap(Estudiante::getUsuario, item -> item));
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new HashMap<String, Estudiante>();
+		}
 	}
 
 	@Override
-	public Estudiante getEstudiante(String usu, String pass, String usuario) {
-		return this.jdbcTemplate.queryForObject(
-				"SELECT * FROM verasignacion(?, ?, ?)",
-				new Object[] {usu, pass, usuario},
-				new EstudianteMapper());
+	public Estudiante getEstudiante(final String usu, final String pass, final String usuario) {
+		try {
+			return this.jdbcTemplate.queryForObject(
+					"SELECT * FROM verasignacion(?, ?, ?)",
+					new Object[] {usu, pass, usuario},
+					new EstudianteMapper());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
-	public boolean elegirSemestre(String usu, String pass, MenuSemestre semestre) {
-		return 1 == this.jdbcTemplate.update("SELECT elegirsemestre(?, ?, ?::semestre)",
-				usu, pass, semestre);
-	}
-
-	@Override
-	public boolean elegirItinerario(String usu, String pass, MenuItinerario itinerario) {
-		return 1 == this.jdbcTemplate.update("SELECT elegiritinerario(?, ?, ?::itinerario)",
-				usu, pass, itinerario);
+	public boolean elegirSemestreItinerario(final String usu, final String pass, final Semestre semestre, final Itinerario itinerario) {
+		try {
+			return 1 == this.jdbcTemplate.update("SELECT elegirsemestreitinerario(?, ?, ?::semestre, ?::itinerario)",
+					usu, pass, semestre, itinerario);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 

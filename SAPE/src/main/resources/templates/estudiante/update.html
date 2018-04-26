@@ -34,7 +34,7 @@
 						<td>Semestre de inicio</td>
 						<td><select th:field="*{semestreInicioEstancia}">
 							<option value="null">&nbsp;</option>
-							<option th:each="semestre: ${T(es.uji.ei1027.SAPE.model.MenuSemestre).values()}"
+							<option th:each="semestre: ${T(es.uji.ei1027.SAPE.model.Semestre).values()}"
      							th:value="${semestre}" th:text="${semestre.getDescripcion()}" th:selected="${semestre==semestreInicioEstancia}">
      						</option>
 						</select></td>
@@ -47,7 +47,7 @@
 						<td>Itinerario</td>
 						<td><select th:field="*{itinerario}">
 							<option value="null">&nbsp;</option>
-							<option th:each="iti: ${T(es.uji.ei1027.SAPE.model.MenuItinerario).values()}"
+							<option th:each="iti: ${T(es.uji.ei1027.SAPE.model.Itinerario).values()}"
      							th:value="${iti}" th:text="${iti.getDescripcion()}" th:selected="${iti==itinerario}">
      						</option>
 						</select></td>

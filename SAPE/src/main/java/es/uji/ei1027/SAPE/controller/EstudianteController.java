@@ -32,13 +32,16 @@ public class EstudianteController {
 	
 	@RequestMapping(value="/add")
 	public String addEstudiante(Model model) {
+
 		model.addAttribute("estudiante", new Estudiante());
 		return "estudiante/add";
 	}
 	
+	
 	@RequestMapping("/list/{dni}") 
 	public String verEstudiante(Model model, String user, String password) {
 		Estudiante e=estudianteDao.getEstudiante(user);
+
 		if(e.getPass() == password) {
 			model.addAttribute("estudiante", e);
 		}

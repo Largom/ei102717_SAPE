@@ -1,0 +1,26 @@
+/* Estil aplicat al cos de la pàgina */
+body {
+   font-family: Helvetica, Arial, sans-serif; 
+   background-color: white;
+}
+
+/* Capçalera de nivell 1 */
+.caja {
+  	width: 50%;
+   color: orange;
+  	padding: 70px 0;
+  
+   
+}
+
+/* Capçalera de nivell 2 */
+h2 {
+   font-size: large; 
+   color: pink;
+}
+
+/* Classe CSS error */
+.error {
+     color: red;
+     font-size:80%
+}

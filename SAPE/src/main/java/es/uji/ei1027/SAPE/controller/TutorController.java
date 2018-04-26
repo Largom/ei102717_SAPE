@@ -1,4 +1,4 @@
-package es.uji.ei1027.SAPE.controller;
+/*package es.uji.ei1027.SAPE.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,3 +34,4 @@ public class TutorController {
 	}
 **/
 }
+*/

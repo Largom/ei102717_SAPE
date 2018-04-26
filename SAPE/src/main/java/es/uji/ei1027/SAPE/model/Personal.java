@@ -1,6 +1,6 @@
 package es.uji.ei1027.SAPE.model;
 
-public abstract class Personal {
+public class Personal {
 	
 	protected String usuario;
 	protected String pass;
