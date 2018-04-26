@@ -6,24 +6,24 @@
 	<body>
 		<div layout:fragment="content">
 			<h2>Acceso</h2>
-			<form action="#" th:action="@{/login}" method="post" class="form-horizontal">
-				<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('user')} ? has-error">
-					<label class="col-3 control-label" for="user">Nombre de usuario:</label>
+			<form action="#" th:action="@{/login}" method="post" th:object="${user}" class="form-horizontal">
+				<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('usuario')} ? has-error">
+					<label class="col-3 control-label" for="usuario">Nombre de usuario:</label>
 					<div class="col-6">
-						<input class="form_control" type="text" th:field="${user}" th:classappend="${#fields.hasErrors('user')} ? bg-warning">
-							<span th:if="${#fields.hasErrors('user')}" class="glyphicon glyphicon-remove form-control-feedback"></span>
+						<input class="form_control" type="text" th:field="*{usuario}" th:classappend="${#fields.hasErrors('usuario')} ? bg-warning">
+							<span th:if="${#fields.hasErrors('usuario')}" class="glyphicon glyphicon-remove form-control-feedback"></span>
 						</input>
 					</div>
-					<div class="error" th:if="${#fields.hasErrors('user')}" th:errors="${user}"></div>
+					<div class="error" th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></div>
 				</div>
 				<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('pass')} ? has-error">
 					<label class="col-3 control-label" for="pass">Contraseña:</label>
 					<div class="col-6">
-						<input class="form_control" type="password" th:field="${pass}">
-							<span th:if="${#fields.hasErrors('user')}" class="glyphicon glyphicon-remove form-control-feedback"></span>
+						<input class="form_control" type="password" th:field="*{pass}" th:classappend="${#fields.hasErrors('pass')} ? bg-warning">
+							<span th:if="${#fields.hasErrors('pass')}" class="glyphicon glyphicon-remove form-control-feedback"></span>
 						</input>
 					</div>
-					<div class="error" th:if="${#fields.hasErrors('pass')}" th:errors="${pass}"></div>
+					<div class="error" th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"></div>
 				</div>
 				<input type="submit" value="Accedir" />
 			</form>

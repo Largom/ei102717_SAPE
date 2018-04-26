@@ -37,4 +37,19 @@ public class Personal {
 	public final String getPass() {
 		return pass;
 	}
+	
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	/**
+	 * @param pass the pass to set
+	 */
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
 }
