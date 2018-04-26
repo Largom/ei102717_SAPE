@@ -1,4 +1,9 @@
-/*package es.uji.ei1027.SAPE.controller;
+package es.uji.ei1027.SAPE.controller;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -6,32 +11,48 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import es.uji.ei1027.SAPE.dao.DaoTutor;
+import es.uji.ei1027.SAPE.model.Personal;
+import es.uji.ei1027.SAPE.model.Tutor;
 
 
 @Controller
 @RequestMapping("/tutor")
 public class TutorController {
-/**
-	private TutorDAO tutorDAO;
+
+	private DaoTutor tutorDAO;
 	
-	
-	@RequestMapping(value="/verAsignacion", method = RequestMethod.GET )
-	public String loginEstudiante(Model model, @PathVariable String id ) {
-		model.addAttribute("asignacionAdjudicada", tutorDAO.getAsignacion(id));
-		return "tutor/getAsignacion";
+	@Autowired
+	public void setTutorDao(DaoTutor tutorDao) {
+		this.tutorDAO = tutorDao;
 	}
 	
-	@RequestMapping(value="/listar", method = RequestMethod.GET)
-	public String listarAsignaciones(Model model ) {
-		model.addAttribute("asignaciones", tutorDAO.getAsignaiones());
-		return "tutor/asignaciones";
+	
+	@RequestMapping("/list.html")
+	public String listaTutores(HttpSession session, Model model) {
+		Personal usuario = (Personal) session.getAttribute("user");
+		if(usuario == null) {
+			session.setAttribute("nextUrl", "/tutor/list.html");
+			model.addAttribute("user", new String());
+			model.addAttribute("pass", new String());
+			return "login";
+		}
+		
+		model.addAttribute("users", tutorDAO.getTutores(usuario.getUsuario(), usuario.getPass()));
+		return "tutor/list";
 	}
 	
-	@RequestMapping(value="/perfil", method = RequestMethod.GET )
-	public String perfilTutor(Model model) {
-		model.addAttribute("perfil", tutorDAO.getTutor());
+	@RequestMapping(value="/{correo}", method = RequestMethod.GET )
+	public String perfilTutor(HttpSession session, Model model, @PathVariable String correo ) {
+		Personal usuario = (Personal) session.getAttribute("user");
+		if(usuario == null) {
+			session.setAttribute("nextUrl", "/tutor/"+correo+".html");
+			model.addAttribute("user", new String());
+			model.addAttribute("pass", new String());
+			return "login";
+		}
+		model.addAttribute("perfil", tutorDAO.getTutor(usuario.getUsuario(), usuario.getPass(), correo));
 		return "tutor/perfil";
 	}
-**/
+
 }
-*/
