@@ -7,34 +7,52 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import es.uji.ei1027.SAPE.model.Empresa;
-import es.uji.ei1027.SAPE.model.Estudiante;
-import es.uji.ei1027.SAPE.model.MenuItinerario;
-import es.uji.ei1027.SAPE.model.MenuSemestre;
 
 import java.sql.SQLException;
 import java.sql.ResultSet;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class JdbcDaoEmpresa implements DaoEmpresa{
-	
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	public void setDataSource(DataSource dataSource) {
+	public void setDataSource(final DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	private static final class EmpresaMapper implements RowMapper<Empresa> {
-		public Empresa mapRow(ResultSet rs, int rowNum) throws SQLException {
-			return new Empresa();
-					//rs.getString("usuario"), rs.getString("dni"), rs.getString("nombre"),
-					//rs.getInt("numerocreditosaprobados"), rs.getInt("numasignaturaspendiente4t"),
-					//MenuSemestre.buscar(rs.getString("semestreinicioestancia")),
-					//rs.getInt("orden"), MenuItinerario.buscar(rs.getString("itinerario")));
+		public Empresa mapRow(final ResultSet rs, final int rowNum) throws SQLException {
+			Empresa empresa = new Empresa(rs.getString("nombre"), rs.getString("nif"),
+					rs.getString("domicilio"), rs.getString("telefonoprincipal"));
+			return empresa;
 		}
 	}
-	
-	public List<Empresa> getEmpresas(){
-		return null;
+
+	@Override
+	public Map<String, Empresa> getEmpresas(final String usu, final String pass) {
+		try {
+			return this.jdbcTemplate.query(
+					"SELECT * FROM verempresa(?, ?)",
+					new Object[] {usu, pass},
+					new EmpresaMapper()).stream().collect(Collectors.toMap(Empresa::getCif, item -> item));
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new HashMap<String, Empresa>();
+		}
+	}
+
+	@Override
+	public Empresa getEmpresa(final String usu, final String pass,final  String cif) {
+		try {
+			return this.jdbcTemplate.queryForObject(
+					"SELECT * FROM verempresa(?, ?, ?)",
+					new Object[] {usu, pass, cif},
+					new EmpresaMapper());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

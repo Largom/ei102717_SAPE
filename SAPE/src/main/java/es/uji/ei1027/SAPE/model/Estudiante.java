@@ -7,9 +7,9 @@ public class Estudiante extends Personal{
 	private String nombre;
 	private int numeroCreditosAprobados;
 	private int numeroAsignaturasPendientes4t;
-	private MenuSemestre semestreInicioEstancia;
+	private Semestre semestreInicioEstancia;
 	private int orden;
-	private MenuItinerario itinerario;
+	private Itinerario itinerario;
 	
 	/**
 	 * Constructor
@@ -50,8 +50,8 @@ public class Estudiante extends Personal{
 	 * @param itinerario
 	 */
 	public Estudiante(final String usuario, final String dni, final String nombre, final int numeroCreditosAprobados,
-			final int numeroAsignaturasPendientes4t, final MenuSemestre semestreInicioEstancia, final int orden,
-			final MenuItinerario itinerario) {
+			final int numeroAsignaturasPendientes4t, final Semestre semestreInicioEstancia, final int orden,
+			final Itinerario itinerario) throws IllegalArgumentException {
 		super(usuario, null);
 		if (numeroAsignaturasPendientes4t<0 || numeroAsignaturasPendientes4t>12 || numeroCreditosAprobados<149.4 || numeroCreditosAprobados>260) {
 			throw new IllegalArgumentException();
@@ -69,25 +69,25 @@ public class Estudiante extends Personal{
 	/**
 	 * @return the semestreInicioEstancia
 	 */
-	public final MenuSemestre getSemestreInicioEstancia() {
+	public final Semestre getSemestreInicioEstancia() {
 		return semestreInicioEstancia;
 	}
 	/**
 	 * @param semestreInicioEstancia the semestreInicioEstancia to set
 	 */
-	public final void setSemestreInicioEstancia(final MenuSemestre semestreInicioEstancia) {
+	public final void setSemestreInicioEstancia(final Semestre semestreInicioEstancia) {
 		this.semestreInicioEstancia = semestreInicioEstancia;
 	}
 	/**
 	 * @return the itinerario
 	 */
-	public final MenuItinerario getItinerario() {
+	public final Itinerario getItinerario() {
 		return itinerario;
 	}
 	/**
 	 * @param itinerario the itinerario to set
 	 */
-	public final void setItinerario(final MenuItinerario itinerario) {
+	public final void setItinerario(final Itinerario itinerario) {
 		this.itinerario = itinerario;
 	}
 	/**

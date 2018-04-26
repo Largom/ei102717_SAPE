@@ -1,11 +1,13 @@
 package es.uji.ei1027.SAPE.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class PreferenciasAlumno {
 
 	private String idEstudiante;
-	private String[] preferencias;
+	private List<Short> preferencias;
 	private Date ultimoCambio;
 	private boolean cerrada;
 	
@@ -19,35 +21,26 @@ public class PreferenciasAlumno {
 	/**
 	 * Constructor de Preferencias de un Alumno
 	 * @param idEstudiante
-	 * @param preferencias como maximo 5
 	 * @param ultimoCambio
 	 * @param cerrada
+	 * @param preferencias
 	 * @throws IllegalArgumentException
 	 */
-	public PreferenciasAlumno(final String idEstudiante, final String[] preferencias, final Date ultimoCambio, final boolean cerrada) throws IllegalArgumentException {
+	public PreferenciasAlumno(final String idEstudiante, final Date ultimoCambio, final boolean cerrada, final List<Short> preferencias) throws IllegalArgumentException {
 		super();
 		this.idEstudiante = idEstudiante;
-		if (preferencias==null || preferencias.length>5)  {
-			throw new IllegalArgumentException();
-		}
-		this.preferencias = preferencias;
 		this.ultimoCambio = ultimoCambio;
 		this.cerrada = cerrada;
+		this.preferencias = preferencias;
 	}
 
 	/**
 	 * @return las preferencias
 	 */
-	public final String[] getPreferencias() {
+	public final List<Short> getPreferencias() {
 		return preferencias;
 	}
 
-	/**
-	 * @param preferencias the preferencias to set
-	 */
-	public final void setPreferencias(final String[] preferencias) {
-		this.preferencias = preferencias;
-	}
 
 	/**
 	 * @return el idEstudiante
