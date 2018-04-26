@@ -5,8 +5,6 @@ import java.util.Map;
 
 import es.uji.ei1027.SAPE.model.Empresa;
 
-
-
 public interface DaoEmpresa {
 /*
 	List<Empresa> getEmpresas();

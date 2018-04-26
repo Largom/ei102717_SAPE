@@ -17,25 +17,21 @@ import es.uji.ei1027.SAPE.model.Empresa;
 @RequestMapping("/empresa")
 public class EmpresaController {
 
-/**	
-	private EmpresaDAO empresaDao;
-	
-	@Autowired
-	public void setEmpresaDao(EmpresaDAO empresaDao) {
 
-	private DaoEmpresa empresaDao;
+	private DaoEmpresa daoempresa;
 	
-	@Autowired
-	public void setEmpresaDao(DaoEmpresa empresaDao) {
-		this.empresaDao = empresaDao;
-	}
+	//@Autowired
+	//public void setEmpresaDao(DaoEmpresa daoempresa) {
+		//this.daoempresa = daoempresa;
+//}
 	
-	@RequestMapping("/list")
+	@RequestMapping("/general")
 	public String listEmpresas(Model model) {
-		model.addAttribute("empresas", empresaDao.getEmpresas());
-		return "empresa/list";
+		//model.addAttribute("empresas", daoempresa.getEmpresas());
+		return "empresa/general";
 	}
-	
+}
+	/*
 	@RequestMapping(value="/add")
 	public String addEmpresa(Model model) {
 		model.addAttribute("empresa", new Empresa());
@@ -77,10 +73,11 @@ public class EmpresaController {
 }
 
 }
+}
 */
 
 
-**/
-}
+
+
 
 

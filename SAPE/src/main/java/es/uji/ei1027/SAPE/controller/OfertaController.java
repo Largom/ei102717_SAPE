@@ -1,5 +1,5 @@
 
-
+/*
 package es.uji.ei1027.SAPE.controller;
 
 
@@ -82,7 +82,7 @@ public class OfertaController {
 		}
 		
 		// public String estadoOferta
-**/
+
 }
 
 }*/
