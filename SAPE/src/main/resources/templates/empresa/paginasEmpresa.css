@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+
+#titulo {
+	background-color: #587D52; 
+	color: #FFFFFF; 
+	font-family: 'Rubik Mono One', sans-serif; 
+	font-size: 60px;
+	text-align: left;
+	letter-spacing: .2em;   /*Espaciado entre letras*/
+	
+}
+
+h3 {
+	font-family: 'Catamaran', sans-serif;
+	font-size: 30px;
+	padding: 20px 40px;
+	
+}
+
+body {
+	background-color:  #f7f7f7 ;
+}
+
+
+/*Alineacion tablas*/
+table {
+	text-align: left;
+	width: 45%;
+}
+
+td, th, a, button {
+	font-family: 'Catamaran', sans-serif;
+}
+
+td, th {
+	padding: 3px;
+}
+
+.oferta {
+	margin: 5px 50px; /*Margen de arriba y margen hacia la derecha*/
+}
+
+.btn-boton {
+    color: #ffffff;
+    background-color: #587D52;
+    border-color: #587D52;
+}

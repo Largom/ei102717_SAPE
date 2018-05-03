@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ver oferta</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="paginasEmpresa.css">
+  <link rel="stylesheet"   
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet"> 
+  
+</head>
+<body>
+
+<h1 id="titulo">&nbsp;&nbsp;SAPE</h1>
+
+<h3>Ver oferta</h3>
+<div class="oferta">
+
+	<form action="#" method="GET" th:object="${estudiante}">
+	<table>
+		<tbody>
+			<tr>
+				<td>Estancia</td>
+				<td><input th:field="*{cifEmpresa}" type="text" placeholder="Introduce estancia"/></td>
+			</tr>
+			<tr>
+				<td>Tarea</td>
+				<td><input th:field="*{nombre}" type="text" placeholder="Introduce tarea"/></td>
+			</tr>
+			<tr>
+				<td>Fecha de alta</td>
+				<td><input th:field="*{fechaAlta}" type="text" placeholder="Introduce fecha"/></td>
+			</tr>
+			<tr>
+				<td>Fecha último cambio</td>
+				<td><input th:field="*{fechaUltimoCambio}" type="text" placeholder="Introduce fecha"/></td>
+			</tr>
+			<tr>
+				<td>Estado</td>
+				<td><select th:field="*{estado}">
+					<option value="">Aceptada</option>
+					<option value="">Asignada</option>
+					<option value="">Introducida</option>
+					<option value="">Pendiente de revisión</option>
+					<option value="">Rechazada</option>
+					<option value="">Sin definir</option>
+					<option value="">Visible</option>
+					<option th:each="itinerario: ${T(es.uji.ei1027.SAPE.model.MenuSemestre).values()}"
+    					th:value="${semestre}" th:text="${semestre.getDescripcion()}" >
+    				</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td>Itinerario</td>
+				<td><select th:field="*{itinerario}">
+					<option value="">Ingeniería de Software</option>
+					<option value="">Sistemas de la información</option>
+					<option value="">Tecnologías de la información</option>
+					<option value="">Ingeniería de computadores</option>
+					<option th:each="semestre: ${T(es.uji.ei1027.SAPE.model.MenuSemestre).values()}"
+    					th:value="${semestre}" th:text="${semestre.getDescripcion()}" >
+    				</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td>Objetivo</td>
+				<td><input th:field="*{objetivo}" type="text" placeholder="Introduce objetivo"/></td>
+			</tr>
+  		</tbody>
+  	</table>
+  	<a href="/" class="btn btn-boton" role="button">Volver</a>
+ </div>
+</body>
+</html>
