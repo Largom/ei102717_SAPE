@@ -36,7 +36,6 @@ public class PersonalController {
 		return "personal/empresa";
 	}
 	
-
-**/
 }
-*/
+**/
+

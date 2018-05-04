@@ -24,8 +24,27 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
 
+
+
+
+class EstudianteValidator implements Validator { 
+    @Override
+    public boolean supports(Class<?> cls) { 
+        return Estudiante.class.isAssignableFrom(cls);
+    }
+    @Override 
+    public void validate(Object obj, Errors errors) {
+    	Estudiante estudiante = (Estudiante)obj;
+    	if (estudiante.getItinerario().equals(""))
+		       errors.rejectValue("estudiante", "obligatori", "Es necesario introducir un itinerario");
+    	if (estudiante.getSemestreInicioEstancia().equals(""))
+		       errors.rejectValue("estudiante", "obligatori", "Es necesario introducir un semestre");
+ 
+    }
+}
+
 @Controller
-@RequestMapping("estudiante")
+@RequestMapping("/estudiante")
 
 public class EstudianteController {
 	
@@ -69,6 +88,7 @@ public class EstudianteController {
 		return "estudiante/update";
 		
 	}
+	
 	@RequestMapping(value="/update/{usuario}", method = RequestMethod.POST)  // Una vez rellenado el formulario de modificacion, se envia al servidor .
     public String processUpdateSubmit(@PathVariable String nom, @ModelAttribute("estudiante") Estudiante estudiante, BindingResult bindingResult, HttpSession session, Model model) {
 		
@@ -79,12 +99,14 @@ public class EstudianteController {
 	          session.setAttribute("nextUrl", "/estudiante/list/html"); 
 	          return "login";
 		}
+		
+		EstudianteValidator estudianteValidador = new EstudianteValidator();
+		estudianteValidador.validate(estudiante, bindingResult);
 		if (bindingResult.hasErrors()) 
              return "estudiante/update";
+		
          estudianteDao.elegirSemestreItinerario(usuario.getUsuario(), usuario.getPass(), estudiante.getSemestreInicioEstancia(), estudiante.getItinerario());
          return "redirect:../list"; 
     }
 	
-	
-
 }
