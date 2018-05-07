@@ -1,4 +1,4 @@
-package es.uji.ei1027.SAPE.controller;
+/**package es.uji.ei1027.SAPE.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller; 
@@ -83,4 +83,4 @@ public class EstudianteController {
 	public String verPreferencia() {
 		return "bla, bla";
 	}
-}
+}*/
