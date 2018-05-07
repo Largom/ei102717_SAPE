@@ -1,4 +1,9 @@
-@CHARSET "UTF-8";
+.text-center {
+	background-color: #587D52;
+	color: #FFFFFF;
+	font-family: monospace;
+	font-size: 20px;
+}
 
 h3 {
 	font-family: 'Catamaran', sans-serif;
@@ -15,19 +20,34 @@ body {
 /*Alineacion tablas*/
 table {
 	text-align: left;
-	width: 45%;
+	width: 60%;
 }
 
 td, th, a, button {
 	font-family: 'Catamaran', sans-serif;
 }
 
+td, th {
+	padding: 3px;
+}
 
-.text-center {
+.oferta {
+	margin: 5px 50px; /*Margen de arriba y margen hacia la derecha*/
+}
+
+.btn-boton {
+	border-color: #45614B;
 	background-color: #587D52;
 	color: #FFFFFF;
-	font-family: monospace;
-	font-size: 20px;
+	text-shadow: #000000;
+    cursor: pointer;
+	float: right;
+}
+
+.btn-boton:hover {
+    background-color: #fcfcfc;
+	color: #587D52;
+    text-decoration: none;
 }
 
 .navbar{
@@ -71,39 +91,27 @@ td, th, a, button {
 	text-shadow: #000000;
 }
 
+
 /*
 	TABLA
 */
 
 /*Alineacion tablas*/
 table {
-	
+	text-align: left;
+	width: 45%;
 }
 
 td, th, a, button {
 	font-family: 'Catamaran', sans-serif;
 }
 
-.tabla {
-	margin: 5px 50px; /*Margen de arriba y margen hacia la derecha*/
-	text-align: left;
-	width: 45%;
+td, th {
+	padding: 3px;
 }
 
-.btn-boton {
-	border-color: #45614B;
-	background-color: #587D52;
-	color: #FFFFFF;
-	text-shadow: #000000;
-    cursor: pointer;
-	float: right;
-}
-
-.btn-boton:hover {
-    background-color: #fcfcfc;
-	color: #587D52;
-    text-decoration: none;
-}
 .caja {
 	margin: 5px 50px; /*Margen de arriba y margen hacia la derecha*/
 }
+
+
