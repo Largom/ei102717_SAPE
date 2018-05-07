@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping; 
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.uji.ei1027.SAPE.dao.DaoEstudiante;
 import es.uji.ei1027.SAPE.dao.DaoLogin;
 import es.uji.ei1027.SAPE.model.Personal;
 
@@ -41,8 +42,12 @@ class UserValidator implements Validator {
 
 @Controller
 public class LoginController {
+	
     @Autowired
     private DaoLogin userDao;
+    
+   
+	
 
     @RequestMapping("/login")
     public String login(Model model) {

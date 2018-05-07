@@ -23,8 +23,8 @@ public class EmpresaController {
 
 	private DaoEmpresa empresaDao;
 	
-	
-	public void setEmpresaDao(DaoEmpresa empresaDao) {
+	@Autowired
+	public void setEmpresa (DaoEmpresa empresaDao) {
 		this.empresaDao = empresaDao;
 	}
 	
