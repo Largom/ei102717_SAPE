@@ -1,48 +1,18 @@
-@CHARSET "UTF-8";
+/*
+	Archivo CSS de la página de empresas
+*/
 
-h3 {
-	font-family: 'Catamaran', sans-serif;
-	font-size: 30px;
-	padding: 20px 40px;
-	
-}
-
-body {
-	background-color:  #f7f7f7 ;
-}
-
-
-/*Alineacion tablas*/
-table {
-	text-align: left;
-	width: 45%;
-}
-
-td, th, a, button {
-	font-family: 'Catamaran', sans-serif;
-}
-
-
+/* La clase text-center es la clase del encabezado de SAPE */
 .text-center {
 	background-color: #587D52;
 	color: #FFFFFF;
 	font-family: monospace;
-	font-size: 20px;
 }
 
-.navbar{
-	background-color : #e3e9e2;
-	border-color: #e3e9e2;
-}
-.dropdown{
-	margin-top: 6%;
-	
-}
-
-/* Navbar del título, "Hola, estudiante" */
+/* Navbar del título, "Hola, empresa" */
 .navbar-header {
 	padding-left: 30px;
-	font-family: monoscape;
+	font-family: arial;
 }
 
 /* Ajuste del navbar de botones para juntarlo con el navbar-header */
@@ -69,25 +39,30 @@ td, th, a, button {
 	background-color: #587D52;
 	color: #FFFFFF;
 	text-shadow: #000000;
+	margin-top: 8px;
 }
 
-/*
-	TABLA
-*/
+/* Ajuste de la casilla de búsqueda */
+.form-group {
+	padding-top: 4px;
+}
 
-/*Alineacion tablas*/
-table {
+.search{
+	margin-top: 1.2%;
+	
+	
+}
+.navbar{
+	background-color : #e3e9e2;
+	border-color: #e3e9e2;
+}
+.dropdown{
+	margin-top: 6%;
 	
 }
 
-td, th, a, button {
-	font-family: 'Catamaran', sans-serif;
-}
-
-.tabla {
-	margin: 5px 50px; /*Margen de arriba y margen hacia la derecha*/
-	text-align: left;
-	width: 45%;
+.table-striped {
+	width: 100%;
 }
 
 .btn-boton {
@@ -97,14 +72,10 @@ td, th, a, button {
 	text-shadow: #000000;
     cursor: pointer;
 	float: right;
-	padding-right: 20px;
 }
 
 .btn-boton:hover {
     background-color: #fcfcfc;
 	color: #587D52;
     text-decoration: none;
-}
-.caja {
-	margin: 5px 50px; /*Margen de arriba y margen hacia la derecha*/
 }

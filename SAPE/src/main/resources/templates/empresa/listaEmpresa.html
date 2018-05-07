@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Gestionar Ofertas</title>
+	<meta charset="UTF-8" />
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="empresas.css" th:href="@{empresas.css}"/>
+
+</head>
+
+<div class="jumbotron text-center">
+	<h1 id="titulo">S A P E</h1>
+	<p>Empresas</p> 
+</div>
+
+<body style="background-color:#F3F3F3">
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+		<h1>Hola, empresa</h1>
+    </div>
+  
+    <ul class="nav navbar-nav navbar-right">
+	  <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Idioma </a></li>
+   	  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil </a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+    </ul>
+  </div>
+</nav> 
+		  
+<nav class="navbar navbar-inverse" >
+  <div class="container-fluid">  	
+  	<div class="botones">
+  	<div class="collapse navbar-collapse navbar-right">
+  		<ul class="nav navbar-nav">
+      		<li><a href="crearOferta.html"><button class="btn btn-default navbar-btn ">Crear oferta</button></a></li>
+      		<li class="dropdown">
+      		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Ordenar por<span class="caret"></span></button>
+      	 		<ul class="dropdown-menu">
+          			<li><a href="#">Page 1-1</a></li>
+          			<li><a href="#">Page 1-2</a></li>
+          			<li><a href="#">Page 1-3</a></li>
+        		</ul>
+        	</li>	
+       </ul>
+   </div>
+   </div>
+    
+    <form  class="search" role="search">
+    <ul class="nav navbar-nav navbar-right">
+			<li><div class="form-group"><input type="text" class="form-control" placeholder="Buscar"/></div></li>
+       		<li><button type="submit" class="btn btn-link btn-lg"><span class="glyphicon glyphicon-search" style="color: black;"></span></button></li>
+    </ul>
+   </form>
+  </div>
+ 
+</nav>
+ 
+	<div class="container col-md4 col-md-offset-1" style="text-align:center; width:80%;">
+	<div th:if="${#lists.isEmpty(empresas)}">
+   		No hay ofertas dadas de alta en la base de datos
+    </div>
+	
+	<table th:unless="${#lists.isEmpty(empresas)}" class="table table-striped">
+		<thead>
+			<tr>
+				<th style="text-align:center;">Usuario</th>
+				<th style="text-align:center;">Título oferta</th>
+				<th style="text-align:center;">Fecha</th>
+				<th style="text-align:center;">Estado</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="empresa: ${empresas}">
+				<td th:text="${empresa.getUsuario()}">&nbsp;</td>
+				<td th:text="${empresa.getNombre()}">&nbsp;</td>
+				<td th:text="${empresa.getFecha()}">&nbsp;</td>
+				<td th:text="${empresa.getEstado()}">&nbsp;</td>
+				<td>         
+	  				<div class="btn-group botones">
+	    				<a th:href="@{/estudiante/verOferta/{usuario}(usuario=${empresa.getUsuario()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Ver">
+	    						<span class="glyphicon glyphicon-eye-open" style="color: black;"></span>
+	    				</a>
+	    				<a th:href="@{/estudiante/editarOferta/{usuario}(usuario=${empresa.getUsuario()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Modificar">
+	    						<span class="glyphicon glyphicon-pencil" style="color: black;"></span>
+	    				</a>
+	    				<a th:href="@{/estudiante/delete/{usuario}(usuario=${empresa.getUsuario()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Borrar">
+	    						<span class="glyphicon glyphicon-trash" style="color: black;"></span>
+	    				</a>
+	 			 	</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>
