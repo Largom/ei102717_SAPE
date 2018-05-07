@@ -51,7 +51,7 @@ public class EstudianteController {
 	private DaoEstudiante estudianteDao;
 	
 	@Autowired
-	public  void setEstudianteDao(DaoEstudiante estudianteDao) {
+	public  void setEstudiante (DaoEstudiante estudianteDao) {
 		this.estudianteDao = estudianteDao;
 	}
 	
