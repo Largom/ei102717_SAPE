@@ -27,18 +27,24 @@
   </div>
 </nav> 
 
+
+<form action="#" th:action="@{/nadador/update/{nom}}" 
+                     th:object="${nadador}" method="post"> 
+      <table>
+
+
 <h3>Crear oferta</h3>
 <div class="caja">
-	<form action="#" method="GET" th:object="${estudiante}">
+	<form action="#" th:action="@{/oferta/add/{id}}" th:object="${nuevaOferta}" method="POST" >
 	<table class="tabla" style="margin: 5px 50px">
 		<tbody>
 			<tr>
 				<td>Estancia</td>
-				<td><input th:field="*{cifEmpresa}" type="text" placeholder="Introduce estancia"/></td>
+				<td><input th:field="*{estancia}" type="text" readonly="readonly"/></td>
 			</tr>
 			<tr>
 				<td>Tarea</td>
-				<td><input th:field="*{nombre}" type="text" placeholder="Introduce tarea"/></td>
+				<td><input th:field="*{tarea}" type="text" placeholder="Introduce tarea"/></td>
 			</tr>
 			<tr>
 				<td>Fecha de alta</td>
@@ -46,7 +52,7 @@
 			</tr>
 			<tr>
 				<td>Fecha último cambio</td>
-				<td><input th:field="*{fechaUltimoCambio}" type="text" placeholder="Introduce fecha"/></td>
+				<td><input th:field="*{fechaUltimoCambio}" type="text" readonly="readonly"/></td>
 			</tr>
 			<tr>
 				<td>Estado</td>
@@ -80,10 +86,14 @@
 				<td><input th:field="*{objetivo}" type="text" placeholder="Introduce objetivo"/></td>
 			</tr>
   		</tbody>
+  		<tr>
+  		<td colspan="2"><input type="submit" value="Añadir" class="btn btn-success" style="margin-top:20px;"/></td>
+  		
+  		</tr>
   	</table>
-
-  	<a href="/" class="btn btn-boton" role="button">Volver</a>
-  	<a href="/" class="btn btn-boton" role="button" style="padding-right: 10px;">Crear</a>
+	
+  	<!--    <a href=" " class="btn btn-boton" role="button">Volver</a>
+  	<a href="/" class="btn btn-boton" role="button" style="padding-right: 10px;">Crear</a> -->
  </div>
 </body>
 </html>

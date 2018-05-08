@@ -1,4 +1,5 @@
-/*package es.uji.ei1027.SAPE.controller;
+/*
+package es.uji.ei1027.SAPE.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -6,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import es.uji.ei1027.SAPE.dao.DaoLogin;
 import es.uji.ei1027.SAPE.model.*;
 
