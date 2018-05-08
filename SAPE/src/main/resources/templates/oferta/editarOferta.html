@@ -29,24 +29,24 @@
 
 <h3>Editar oferta</h3>
 <div class="caja">
-	<form action="#" method="GET" th:object="${estudiante}">
+	<form action="#" method="POST" th:action="@{/oferta/editar/{id} (id=${oferta.id})}" th:object="${oferta}">
 	<table class="tabla" style="margin: 5px 50px">
 		<tbody>
 			<tr>
 				<td>Estancia</td>
-				<td><input th:field="*{cifEmpresa}" type="text" placeholder="Introduce estancia"/></td>
+				<td><input th:field="*{estancia}" type="text"/></td>
 			</tr>
 			<tr>
 				<td>Tarea</td>
-				<td><input th:field="*{nombre}" type="text" placeholder="Introduce tarea"/></td>
+				<td><input th:field="*{tarea}" type="text"/></td>
 			</tr>
 			<tr>
 				<td>Fecha de alta</td>
-				<td><input th:field="*{fechaAlta}" type="text" placeholder="Introduce fecha"/></td>
+				<td><input th:field="*{fechaAlta}" type="text"/></td>
 			</tr>
 			<tr>
 				<td>Fecha último cambio</td>
-				<td><input th:field="*{fechaUltimoCambio}" type="text" placeholder="Introduce fecha"/></td>
+				<td><input th:field="*{fechaUltimoCambio}" type="text"/></td>
 			</tr>
 			<tr>
 				<td>Estado</td>
@@ -58,9 +58,6 @@
 					<option value="">Rechazada</option>
 					<option value="">Sin definir</option>
 					<option value="">Visible</option>
-					<option th:each="itinerario: ${T(es.uji.ei1027.SAPE.model.MenuSemestre).values()}"
-    					th:value="${semestre}" th:text="${semestre.getDescripcion()}" >
-    				</option>
 					</select></td>
 			</tr>
 			<tr>
@@ -70,19 +67,21 @@
 					<option value="">Sistemas de la información</option>
 					<option value="">Tecnologías de la información</option>
 					<option value="">Ingeniería de computadores</option>
-					<option th:each="semestre: ${T(es.uji.ei1027.SAPE.model.MenuSemestre).values()}"
-    					th:value="${semestre}" th:text="${semestre.getDescripcion()}" >
-    				</option>
 					</select></td>
 			</tr>
 			<tr>
 				<td>Objetivo</td>
-				<td><input th:field="*{objetivo}" type="text" placeholder="Introduce objetivo"/></td>
+				<td><input th:field="*{objetivo}" type="text"/></td>
 			</tr>
+			<tr>
+				<td></td>
+	  			<td>
+	  				<a style="margin: 8px; align: left; margin-right: 50px;" href="listaEmpresa.html" class="btn btn-boton" role="button">Volver</a>	
+	  				<a style="margin: 8px; "href="/" class="btn btn-boton" role="button" style="padding-right: 10px;">Modificar oferta</a>
+	  			</td>
+  			</tr>
   		</tbody>
   	</table>
-  	<a href="/" class="btn btn-boton" role="button">Volver</a>
-	<button type="button" class="btn btn-boton">Modificar oferta</button>
  </div>
 </body>
 </html>
