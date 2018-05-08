@@ -86,13 +86,13 @@
 				<td th:text="${empresa.getEstado()}">&nbsp;</td>
 				<td>         
 	  				<div class="btn-group botones">
-	    				<a th:href="@{/estudiante/verOferta/{usuario}(usuario=${empresa.getUsuario()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Ver">
+	    				<a th:href="@{/oferta/verOferta/{id}(id=${oferta.getOferta()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Ver">
 	    						<span class="glyphicon glyphicon-eye-open" style="color: black;"></span>
 	    				</a>
-	    				<a th:href="@{/estudiante/editarOferta/{usuario}(usuario=${empresa.getUsuario()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Modificar">
+	    				<a th:href="@{/oferta/editarOferta/{id}(id=${oferta.getOferta()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Modificar">
 	    						<span class="glyphicon glyphicon-pencil" style="color: black;"></span>
 	    				</a>
-	    				<a th:href="@{/estudiante/delete/{usuario}(usuario=${empresa.getUsuario()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Borrar">
+	    				<a th:href="@{/oferta/anularOferta/{id}(id=${oferta.getOferta()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Borrar">
 	    						<span class="glyphicon glyphicon-trash" style="color: black;"></span>
 	    				</a>
 	 			 	</div>
