@@ -34,12 +34,12 @@ td, th, table, a {
 
 <h3>Crear oferta</h3>
 <div class="caja">
-	<form action="#" method="GET" th:action="@{/empresa/add}" th:object="${empresa}">
+	<form action="#" method="POST" th:action="@{/oferta/add/{id}" th:object="${nuevaOferta}">
 	<table class="tabla" style="margin: 5px 50px">
 		<tbody>
 			<tr>
 				<td>Estancia</td>
-				<td><input th:field="*{estancia}" type="text" placeholder="Introduce estancia"/></td>
+				<td><input th:field="*{estancia}" type="text" readonly/></td>
 			</tr>
 			<tr>
 				<td>Tarea</td>
@@ -52,21 +52,6 @@ td, th, table, a {
 			<tr>
 				<td>Fecha último cambio</td>
 				<td><input th:field="*{fechaUltimoCambio}" type="text" readonly/></td>
-			</tr>
-			<tr>
-				<td>Estado</td>
-				<td><select th:field="*{estado}">
-					<option value="">Aceptada</option>
-					<option value="">Asignada</option>
-					<option value="">Introducida</option>
-					<option value="">Pendiente de revisión</option>
-					<option value="">Rechazada</option>
-					<option value="">Sin definir</option>
-					<option value="">Visible</option>
-					<option th:each="itinerario: ${T(es.uji.ei1027.SAPE.model.MenuSemestre).values()}"
-    					th:value="${semestre}" th:text="${semestre.getDescripcion()}" >
-    				</option>
-					</select></td>
 			</tr>
 			<tr>
 				<td>Itinerario</td>
