@@ -16,9 +16,11 @@ body {
 table {
 	text-align: left;
 	width: 45%;
+	padding: 5px;
 }
 
-td, th, a, button {
+tr, td, th, a, button {
+	padding: 5px;
 	font-family: 'Catamaran', sans-serif;
 }
 
@@ -28,6 +30,8 @@ td, th, a, button {
 	color: #FFFFFF;
 	font-family: monospace;
 	font-size: 20px;
+	margin-top: -30px;
+	/*margin-bottom: 25px;*/
 }
 
 .navbar{
@@ -76,13 +80,7 @@ td, th, a, button {
 */
 
 /*Alineacion tablas*/
-table {
-	
-}
 
-td, th, a, button {
-	font-family: 'Catamaran', sans-serif;
-}
 
 .tabla {
 	margin: 5px 50px; /*Margen de arriba y margen hacia la derecha*/
