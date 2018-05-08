@@ -6,6 +6,8 @@
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="empresas.css" th:href="@{empresas.css}"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -23,9 +25,9 @@
   
     <ul class="nav navbar-nav navbar-right">
 	  <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Idioma </a></li>
-   	  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil </a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+   	  <li><a href="perfil.html"><span class="glyphicon glyphicon-user"></span> Perfil </a></li>
+      <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+      <li><a href="logout.html"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
     </ul>
   </div>
 </nav> 
@@ -39,9 +41,13 @@
       		<li class="dropdown">
       		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Ordenar por<span class="caret"></span></button>
       	 		<ul class="dropdown-menu">
-          			<li><a href="#">Page 1-1</a></li>
-          			<li><a href="#">Page 1-2</a></li>
-          			<li><a href="#">Page 1-3</a></li>
+          			<li><a href="#">Aceptada</a></li>
+          			<li><a href="#">Asignado</a></li>
+          			<li><a href="#">Introducida</a></li>
+          			<li><a href="#">Pendiente de revisión</a></li>
+          			<li><a href="#">Rechazada</a></li>
+          			<li><a href="#">Sin definir</a></li>
+          			<li><a href="#">Visible</a></li>
         		</ul>
         	</li>	
        </ul>

@@ -45,9 +45,6 @@ public class LoginController {
 	
     @Autowired
     private DaoLogin userDao;
-    
-   
-	
 
     @RequestMapping("/login")
     public String login(Model model) {
