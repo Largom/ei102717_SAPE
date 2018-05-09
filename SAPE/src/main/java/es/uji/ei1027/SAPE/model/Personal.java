@@ -51,5 +51,4 @@ public class Personal {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-
 }

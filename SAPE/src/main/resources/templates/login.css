@@ -1,0 +1,33 @@
+.form-horizontal {
+	margin-left: 500px;
+	margin-right: 500px;
+}
+
+.navbar-default {
+	margin-top: -30px;
+}
+
+#titulo {
+	font-family: monospace;
+}
+
+.segundoTitulo {
+	text-align: center;
+	font-family: monospace;
+	color: black;
+}
+
+.btn-boton {
+	border-color: #45614B;
+	background-color: #587D52;
+	color: #FFFFFF;
+	text-shadow: #000000;
+    cursor: pointer;
+	float: right;
+}
+
+.btn-boton:hover {
+    background-color: #fcfcfc;
+	color: #587D52;
+    text-decoration: none;
+}

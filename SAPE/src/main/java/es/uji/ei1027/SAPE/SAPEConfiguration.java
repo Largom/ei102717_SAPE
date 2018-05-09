@@ -47,8 +47,33 @@ public class SAPEConfiguration {
 	
 	@Bean
 	@Primary
-    public DaoOfertaProyecto jdbcDaoOfertaProyecto(){
+    public DaoEmpresa empresaJdbcDAO(){
+         return new JdbcDaoEmpresa();
+    }
+	
+	@Bean
+	@Primary
+    public DaoOfertaProyecto ofertaJdbcDAO(){
          return new JdbcDaoOfertaProyecto();
+    }
+	
+	@Bean
+	@Primary
+    public DaoAsignacion asignacionJdbcDAO(){
+         return new JdbcDaoAsignacion();
+    }
+	
+	
+	@Bean
+	@Primary
+    public DaoTutor tutorJdbcDAO(){
+         return new JdbcDaoTutor();
+    }
+	
+	@Bean
+	@Primary
+    public DaoLogin loginJdbcDAO(){
+         return new JdbcDaoLogin();
     }
 	
 	@Bean

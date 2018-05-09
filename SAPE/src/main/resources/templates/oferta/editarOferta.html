@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Editar oferta</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="paginasEmpresa.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  
+</head>
+<body style="background-color: #F3F3F3">
+
+<div class="jumbotron text-center" style="background-color: #587D52">
+	<h1 id="titulo" style="font-size: 50px; color: #FFFFFF">S A P E</h1>
+	<p style="color: #FFFFFF">Empresas</p> 
+</div>
+
+<body style="background-color:#F3F3F3">
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">  
+    <ul class="nav navbar-nav navbar-right">
+	  <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Idioma </a></li>
+   	  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil </a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-home"></span> Inicio </a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir </a></li>
+    </ul>
+  </div>
+</nav> 
+
+<h3>Editar oferta</h3>
+<div class="caja">
+	<form action="#" method="POST" th:action="@{/oferta/editar/{id} (id=${oferta.id})}" th:object="${oferta}">
+	<table class="tabla" style="margin: 5px 50px">
+		<tbody>
+			<tr>
+				<td>Estancia</td>
+				<td><input th:field="*{estancia}" type="text"/></td>
+			</tr>
+			<tr>
+				<td>Tarea</td>
+				<td><input th:field="*{tarea}" type="text"/></td>
+			</tr>
+			<tr>
+				<td>Fecha de alta</td>
+				<td><input th:field="*{fechaAlta}" type="text"/></td>
+			</tr>
+			<tr>
+				<td>Fecha último cambio</td>
+				<td><input th:field="*{fechaUltimoCambio}" type="text"/></td>
+			</tr>
+			<tr>
+				<td>Estado</td>
+				<td><select th:field="*{estado}">
+					<option value="">Aceptada</option>
+					<option value="">Asignada</option>
+					<option value="">Introducida</option>
+					<option value="">Pendiente de revisión</option>
+					<option value="">Rechazada</option>
+					<option value="">Sin definir</option>
+					<option value="">Visible</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td>Itinerario</td>
+				<td><select th:field="*{itinerario}">
+					<option value="">Ingeniería de Software</option>
+					<option value="">Sistemas de la información</option>
+					<option value="">Tecnologías de la información</option>
+					<option value="">Ingeniería de computadores</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td>Objetivo</td>
+				<td><input th:field="*{objetivo}" type="text"/></td>
+			</tr>
+			<tr>
+				<td></td>
+	  			<td>
+	  				<a style="margin: 8px; align: left; margin-right: 50px;" href="listaEmpresa.html" class="btn btn-boton" role="button">Volver</a>	
+	  				<a style="margin: 8px; "href="/" class="btn btn-boton" role="button" style="padding-right: 10px;">Modificar oferta</a>
+	  			</td>
+  			</tr>
+  		</tbody>
+  	</table>
+ </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Gestionar Estudiantes</title>
+	<meta charset="UTF-8" />
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="estudiantes.css" th:href="@{estudiantes.css}"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<div class="jumbotron text-center">
+	<h1 id="titulo">S A P E</h1>
+	<p>Estudiantes</p> 
+</div>
+
+<body style="background-color:#F3F3F3">
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <h1>Hola, estudiante</h1>
+    </div>
+  
+    <ul class="nav navbar-nav navbar-right">
+	  <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Idioma </a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-home"></span> Inicio </a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir </a></li>
+    </ul>
+  </div>
+</nav> 
+		  
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">  	
+  	<div class="botones">
+  	<div class="collapse navbar-collapse navbar-right" >
+  		<ul class="nav navbar-nav">
+     		<li><a href="#"><button class="btn btn-default navbar-btn">Preferencias</button></a></li>
+      		<li><a th:href="@{/oferta/list.html}"><button class="btn btn-default navbar-btn ">Ver ofertas</button></a></li>
+      		
+      		<li class="dropdown">
+      		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Ordenar por<span class="caret"></span></button>
+      	 		<ul class="dropdown-menu">
+          			<li><a href="#">Estado</a></li>
+          			<li><a href="#">Fecha</a></li>
+          			
+        		</ul>
+        	</li>	
+       </ul>
+   </div>
+   </div>
+    
+    <form  class="search" role="search">
+    <ul class="nav navbar-nav navbar-right">
+      		
+			<li><div class="form-group"><input type="text" class="form-control" placeholder="Buscar"/></div></li>
+       		<li><button type="submit" class="btn btn-link btn-lg"><span class="glyphicon glyphicon-search" style="color: black;"></span></button></li>
+     		
+   </ul>
+   </form>
+  </div>
+ 
+</nav>
+ 
+	<div class="container col-md4 col-md-offset-1 " style="text-align:center; width:95%; margin-left: 20px;">
+	<div th:if="${#lists.isEmpty(asignaciones)}">
+   		No hay asignaciones registradas
+   </div>
+
+	
+	<table th:unless="${#lists.isEmpty(asignaciones)}" class="table table-striped">
+		<thead>
+			<tr>
+				<th style="text-align:center;">Titulo asignacion</th>
+				<th style="text-align:center;">Tutor</th>
+				<th style="text-align:center;">Fecha propuesta </th>
+				<th style="text-align:center;">Estado</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="asignacion: ${asignaciones}">
+				<td th:text="${asignacion.getOferta()}">&nbsp;</td>
+				<td th:text="${estudiante.getTutor()}">&nbsp;</td>
+				<td th:text="${estudiante.getFechaPropuesta()}">&nbsp;</td>
+				<td th:text="${estudiante.getEstado()}">&nbsp;</td>
+				<td>         
+	  				<div class="btn-group">
+	    				<a th:href="@{/asignacion/get/{id}(id=${asignacion.getAsignacion()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Ver">
+	    						<span class="glyphicon glyphicon-eye-open" style="color: black;"></span>
+	    				</a>
+	    				<a th:href="@{/asignacion/aceptar/{id}(id=${asignacion.getAsignacion()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Aceptar">
+	    						<span class="glyphicon glyphicon-ok" style="color: black;"></span>
+	    				</a>
+	    				<a th:href="@{/asignacion/borrar/{id}(usuario=${asignacion.getAsignacion()})}" type="button" class="btn btn-link btn-lg" data-toggle="tooltip" data-placement="top" title="Rechazar">
+	    						<span class="glyphicon glyphicon-trash" style="color: black;"></span>
+	    				</a>
+	 			 	</div>
+				
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	</div>
+</body>
+</html>
