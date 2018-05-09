@@ -15,9 +15,13 @@ public class OfertaProyecto{
 	private EstadoOferta estadoOferta;
 	private Set<Itinerario> itinerarios;
 	
-	/**
-	 * 
-	 */
+	public OfertaProyecto(short id){
+		
+		super();
+		this.id =id;
+	}
+	
+	
 	public OfertaProyecto() {
 		super();
 		this.id = 0;

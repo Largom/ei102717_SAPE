@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Editar preferencia</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="paginasEstudiante.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  
+</head>
+<body>
+
+<div class="jumbotron text-center" style="background-color: #587D52">
+	<h1 id="titulo" style="font-size: 50px; color: #FFFFFF">S A P E</h1>
+	<p style="color: #FFFFFF">Estudiantes</p> 
+</div>
+
+<body style="background-color:#F3F3F3">
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">  
+    <ul class="nav navbar-nav navbar-right">
+	  <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Idioma </a></li>
+   	  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil </a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-home"></span> Inicio </a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir </a></li>
+    </ul>
+  </div>
+</nav> 
+
+<h3>Editar preferencia</h3>
+<div class="caja">
+
+	<form action="#" method="GET" th:object="${estudiante}">
+	<table style="margin: 5px 50px">
+		<tbody>
+			<tr>
+				<td>Oferta</td>
+				<td><input th:field="*{cifEmpresa}" type="text" placeholder="Introduce estancia"/></td>
+			</tr>
+			<tr>
+				<td>Tutor</td>
+				<td><input th:field="*{nombre}" type="text" placeholder="Introduce tarea"/></td>
+			</tr>
+			<tr>
+				<td>Fecha propuesta</td>
+				<td><input th:field="*{fechaAlta}" type="text" placeholder="Introduce fecha"/></td>
+			</tr>
+			<tr>
+				<td>Fecha cambio de estado</td>
+				<td><input th:field="*{fechaUltimoCambio}" type="text" placeholder="Introduce fecha"/></td>
+			</tr>
+			<tr>
+				<td>Fecha traspado IGLU</td>
+				<td><input th:field="*{fechaUltimoCambio}" type="text" placeholder="Introduce fecha"/></td>
+			</tr>
+			<tr>
+				<td>Comentario por cambio</td>
+				<td><input th:field="*{fechaUltimoCambio}" type="text" placeholder="Introduce fecha"/></td>
+			</tr>
+			<tr>
+				<td>Estado asignación</td>
+				<td><input th:field="*{fechaUltimoCambio}" type="text" placeholder="Introduce fecha"/></td>
+			</tr>
+  		</tbody>
+  	</table>
+  	<a href="/" class="btn btn-boton" role="button">Volver</a>
+	<button type="button" class="btn btn-boton">Modificar preferencia</button>
+ </div>
+</body>
+</html>

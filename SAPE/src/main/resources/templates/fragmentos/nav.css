@@ -1,0 +1,23 @@
+/* Navbar del título, "Hola, estudiante" */
+.navbar-header {
+	padding-left: 30px;
+	font-family: monoscape;
+}
+
+/* Ajuste del navbar de botones para juntarlo con el navbar-header */
+.navbar-default {
+	margin-top: -30px;
+}
+
+/* Ajuste del navbar de botones para juntarlo con el navbar-default */
+.navbar-inverse {
+	margin-top: -30px;
+}
+
+/* Cambiar el estilo de los botones */
+.navbar-btn {
+	border-color: #45614B;
+	background-color: #587D52;
+	color: #FFFFFF;
+	text-shadow: #000000;
+}

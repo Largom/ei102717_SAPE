@@ -1,0 +1,19 @@
+h1 {
+	background-color: #587D52; 
+	color: #FFFFFF; 
+	font-family: 'Rubik Mono One', sans-serif; 
+	font-size: 60px;
+	text-align: left;
+	   letter-spacing: .2em;   /*Espaciado entre letras*/
+}
+
+h3 {
+	font-family: 'Catamaran', sans-serif;
+	font-size: 30px;
+	padding: 20px 40px;
+	
+}
+
+body {
+	background-color:  #f7f7f7 ;
+}
