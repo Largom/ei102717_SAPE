@@ -37,12 +37,18 @@ public class Personal {
 	public final String getPass() {
 		return pass;
 	}
-
-	public final void setUsuario(String usuario) {
+	
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 
-	public final void setPass(String pass) {
+	/**
+	 * @param pass the pass to set
+	 */
+	public void setPass(String pass) {
 		this.pass = pass;
 	}
 }
