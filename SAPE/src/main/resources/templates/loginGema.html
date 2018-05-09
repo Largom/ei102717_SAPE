@@ -25,11 +25,11 @@
 		<div layout:fragment="content">
 			<h2 class="segundoTitulo">Acceder</h2>
 			<p>&nbsp; </p>
-			<form action="#" th:action="@{/login}" method="post" class="form-horizontal">
-				<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('user')} ? bg-warning">
-					<label for="user">Nombre de usuario:</label>
-					<input type="text" class="form-control" th:field="${user}" th:classapprend="${fields.hasErrors('user')} ? bg-warning">
-				     <div class="error" th:if="${#fields.hasErrors('user')}" th:errors="${user}"></div>
+			<form action="#" th:action="@{/login}" method="post" class="form-horizontal" th:object="${user}">
+				<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('usuario')} ? bg-warning">
+					<label for="usuario">Nombre de usuario:</label>
+					<input type="text" class="form-control" th:field="${usuario}" th:classapprend="${fields.hasErrors('usuario')} ? bg-warning">
+				     <div class="error" th:if="${#fields.hasErrors('usuario')}" th:errors="${user}"></div>
 				</div>
 				
 				<div class="form-group has-feedback" th:classappend="${fields.hasErrors('pass')} ? has-error">

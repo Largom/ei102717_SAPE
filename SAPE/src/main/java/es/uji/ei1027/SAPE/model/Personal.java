@@ -37,4 +37,12 @@ public class Personal {
 	public final String getPass() {
 		return pass;
 	}
+
+	public final void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public final void setPass(String pass) {
+		this.pass = pass;
+	}
 }

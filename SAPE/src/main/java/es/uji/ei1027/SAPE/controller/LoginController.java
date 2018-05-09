@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping; 
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import es.uji.ei1027.SAPE.dao.DaoEstudiante;
 import es.uji.ei1027.SAPE.dao.DaoLogin;
 import es.uji.ei1027.SAPE.model.Personal;
 
 import org.springframework.validation.Errors; 
 import org.springframework.validation.Validator;
 
-class UserValidator implements Validator { 
+class PersonalValidator implements Validator { 
     @Override
     public boolean supports(Class<?> cls) { 
         return Personal.class.isAssignableFrom(cls);
@@ -26,10 +25,10 @@ class UserValidator implements Validator {
     public void validate(Object obj, Errors errors) {
     	Personal user = (Personal)obj;
     	if (user.getUsuario().trim().equals(""))
-		       errors.rejectValue("user", "obligatori",
+		       errors.rejectValue("usuario", "obligatori",
 		                          "Es necesario introducir un nombre de usuario");
     	if (user.getUsuario().length()>20)
-		       errors.rejectValue("user", "obligatori",
+		       errors.rejectValue("usuario", "obligatori",
 		                          "El nombre de usuario no puede se superior a 20 caracteres");
     	if (user.getPass().trim().equals(""))
 		       errors.rejectValue("pass", "obligatori",
@@ -42,36 +41,37 @@ class UserValidator implements Validator {
 
 @Controller
 public class LoginController {
-	
     @Autowired
     private DaoLogin userDao;
 
     @RequestMapping("/login")
-    public String login(Model model) {
-    	model.addAttribute("user", new String());
-    	model.addAttribute("pass", new String());
-        return "login";
+    public String login(Model model, HttpSession session) {
+    	if (session.getAttribute("user") == null) {
+    		model.addAttribute("user", new Personal());
+        	return "login";
+    	}
+    	return "redirect:/";
     }
 
     @RequestMapping(value="/login", method=RequestMethod.POST)
-    public String checkLogin(@ModelAttribute("user") String username, @ModelAttribute("pass") String pass,          
+    public String checkLogin(@ModelAttribute("user") Personal username,          
                 BindingResult bindingResult, HttpSession session) {
-    	Personal user = new Personal(username, pass);
-        UserValidator userValidator = new UserValidator(); 
-        userValidator.validate(user, bindingResult);
+    	//Personal usuar = new Personal(username, pass);
+    	PersonalValidator personalValidator = new PersonalValidator(); 
+        personalValidator.validate(username, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "login";
+        	return "login";
         }
      // Comprova que el login siga correcte 
         // intentant carregar les dades de l'usuari 
-        user = userDao.login(username, pass); 
-        if (user == null) {
-            bindingResult.rejectValue("password", "badpw", "Nombre de usuario o contraseña incorrecto"); 
+        username = userDao.login(username.getUsuario(), username.getPass()); 
+        if (username == null) {
+            bindingResult.rejectValue("pass", "badpw", "Nombre de usuario o contraseña incorrecto"); 
             return "login";
         }
         // Autenticats correctament. 
         // Guardem les dades de l'usuari autenticat a la sessió
-        session.setAttribute("user", user); 
+        session.setAttribute("user", username); 
         
         String nextUrl = (String)session.getAttribute("nextUrl");
         // Torna a la pàgina principal
